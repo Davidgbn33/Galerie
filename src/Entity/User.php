@@ -36,9 +36,13 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\OneToMany(mappedBy: 'user', targetEntity: Comment::class)]
     private Collection $comments;
 
+    #[ORM\OneToMany(mappedBy: 'user', targetEntity: Paint::class)]
+    private Collection $paint;
+
     public function __construct()
     {
         $this->comments = new ArrayCollection();
+        $this->paint = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -147,6 +151,36 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
             // set the owning side to null (unless already changed)
             if ($comment->getUser() === $this) {
                 $comment->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Paint>
+     */
+    public function getPaint(): Collection
+    {
+        return $this->paint;
+    }
+
+    public function addPaint(Paint $paint): static
+    {
+        if (!$this->paint->contains($paint)) {
+            $this->paint->add($paint);
+            $paint->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removePaint(Paint $paint): static
+    {
+        if ($this->paint->removeElement($paint)) {
+            // set the owning side to null (unless already changed)
+            if ($paint->getUser() === $this) {
+                $paint->setUser(null);
             }
         }
 

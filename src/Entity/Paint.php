@@ -40,6 +40,9 @@ class Paint
     #[ORM\ManyToOne(inversedBy: 'paints')]
     private ?Category $category = null;
 
+    #[ORM\ManyToOne(inversedBy: 'paint')]
+    private ?User $user = null;
+
     public function __construct()
     {
         $this->comment = new ArrayCollection();
@@ -160,6 +163,18 @@ class Paint
     public function setCategory(?Category $category): static
     {
         $this->category = $category;
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): static
+    {
+        $this->user = $user;
 
         return $this;
     }
