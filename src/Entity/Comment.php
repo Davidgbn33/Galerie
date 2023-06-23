@@ -17,6 +17,12 @@ class Comment
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $comment = null;
 
+    #[ORM\ManyToOne(inversedBy: 'comments')]
+    private ?User $user = null;
+
+    #[ORM\ManyToOne(inversedBy: 'comment')]
+    private ?Paint $paint = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -30,6 +36,30 @@ class Comment
     public function setComment(?string $comment): static
     {
         $this->comment = $comment;
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): static
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    public function getPaint(): ?Paint
+    {
+        return $this->paint;
+    }
+
+    public function setPaint(?Paint $paint): static
+    {
+        $this->paint = $paint;
 
         return $this;
     }
