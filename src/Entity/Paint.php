@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\PaintRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -31,6 +33,17 @@ class Paint
 
     #[ORM\Column(length: 150)]
     private ?string $taille = null;
+
+    #[ORM\OneToMany(mappedBy: 'paint', targetEntity: Comment::class)]
+    private Collection $comment;
+
+    #[ORM\ManyToOne(inversedBy: 'paints')]
+    private ?Category $category = null;
+
+    public function __construct()
+    {
+        $this->comment = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -105,6 +118,48 @@ class Paint
     public function setTaille(string $taille): static
     {
         $this->taille = $taille;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Comment>
+     */
+    public function getComment(): Collection
+    {
+        return $this->comment;
+    }
+
+    public function addComment(Comment $comment): static
+    {
+        if (!$this->comment->contains($comment)) {
+            $this->comment->add($comment);
+            $comment->setPaint($this);
+        }
+
+        return $this;
+    }
+
+    public function removeComment(Comment $comment): static
+    {
+        if ($this->comment->removeElement($comment)) {
+            // set the owning side to null (unless already changed)
+            if ($comment->getPaint() === $this) {
+                $comment->setPaint(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function getCategory(): ?Category
+    {
+        return $this->category;
+    }
+
+    public function setCategory(?Category $category): static
+    {
+        $this->category = $category;
 
         return $this;
     }
