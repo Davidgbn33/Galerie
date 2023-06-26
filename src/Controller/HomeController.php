@@ -15,7 +15,7 @@ class HomeController extends AbstractController
     {
         $paint = $paintRepository->findAll();
         return $this->render('home/index.html.twig', [
-            'paint' => $paint,
+            'paints' => $paint,
         ]);
     }
 }
