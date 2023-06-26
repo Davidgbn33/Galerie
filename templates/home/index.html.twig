@@ -8,7 +8,7 @@
         {% for paint in paints %}
             <div class="card pb-0 m-3 p-3 te-bg te-shadow" style="width: 22rem;">
                 <div class="d-flex align-items-center justify-content-center" style="height: 110%;">
-                    <img class="card-img-top" src="{{ asset('build/images/aquarelle/') }}{{ paint.paintImage }}" alt="">
+                    <a href="/show/{{ paint.id }}"><img class="card-img-top" src="{{ asset('build/images/aquarelle/') }}{{ paint.paintImage }}" alt=""></a>
                 </div>
                 <div class="card-body d-flex flex-column align-items-center justify-content-end pb-0 te-mx-height" style="height: 20%;">
                     <h5 class="card-title text-center">{{ paint.paintName }}</h5>
