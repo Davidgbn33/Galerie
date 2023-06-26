@@ -1,0 +1,33 @@
+.tp-bg {
+  background-image: url("../../images/background.jpg");
+ background-repeat: no-repeat;
+   background-size: cover;
+   height: 100px;
+   background-position: center;
+}
+
+.te-font-dropdown {
+  font-family: $te-fontFamily-Title;
+  color: $te-text-Title-color;
+  font-size: 30px;
+  font-weight: 400;
+
+  :hover {
+    color: $te-text-Title-color;
+  }
+}
+
+.te-font-title {
+  font-family: $te-fontFamily-Title;
+  color: $te-text-Title-color;
+  font-size: 48px;
+  font-weight: bold;
+}
+
+.navbar, a:hover, .navbar-nav, .nav-link.show, .nav-link:hover, .nav-link:focus, .nav-link.active{
+  color: $te-text-Title-color;
+  --bs-navbar-active-color: $te-text-Title-color;
+}
+.navbar-collapse{
+  flex-grow: 0;
+}
