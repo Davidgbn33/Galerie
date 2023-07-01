@@ -40,26 +40,30 @@ class PaintRepository extends ServiceEntityRepository
         }
     }
 
-    /*public function findForPagination(?Category $category= null)
+    public function findForPagination(?Category $category = null)
     {
-        $sq =$this->createQueryBuilder('a')
-        ->orderBy('a.c')
-    }*/
+        $qb = $this->createQueryBuilder('a')
+            ->orderBy('a.createdAt', 'DESC');
 
-//    /**
-//     * @return Paint[] Returns an array of Paint objects
-//     */
-//    public function findByExampleField($value): array
-//    {
-//        return $this->createQueryBuilder('p')
-//            ->andWhere('p.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->orderBy('p.id', 'ASC')
-//            ->setMaxResults(10)
-//            ->getQuery()
-//            ->getResult()
-//        ;
-//    }
+        if ($category) {
+            $qb->leftJoin('a.categories', 'c')
+                ->where($qb->expr()->eq('c.id', ':id'))
+                ->setParameter('id', $category->getId());
+        }
+
+        return $qb->getQuery();
+    }
+
+}
+
+   /* public function paginatioQuery()
+    {
+        return $this->createQueryBuilder('p')
+            ->orderBy('p.id', 'ASC')
+            ->setMaxResults(10)
+            ->getQuery()
+        ;
+    }*/
 
 //    public function findOneBySomeField($value): ?Paint
 //    {
@@ -70,4 +74,4 @@ class PaintRepository extends ServiceEntityRepository
 //            ->getOneOrNullResult()
 //        ;
 //    }
-}
+
