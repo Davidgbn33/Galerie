@@ -21,6 +21,24 @@ class Category
     #[ORM\Column(length: 100, nullable: true)]
     private ?string $categoryName = null;
 
+    #[ORM\Column(length: 100, nullable: true)]
+    private ?string $categoryImage = null;
+
+    /**
+     * @return string|null
+     */
+    public function getCategoryImage(): ?string
+    {
+        return $this->categoryImage;
+    }
+
+    /**
+     * @param string|null $categoryImage
+     */
+    public function setCategoryImage(?string $categoryImage): void
+    {
+        $this->categoryImage = $categoryImage;
+    }
 
     #[ORM\OneToMany(mappedBy: 'category', targetEntity: Paint::class)]
     private Collection $paints;

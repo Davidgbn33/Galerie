@@ -9,10 +9,12 @@
                     CATEGORIES
                 </a>
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Action</a></li>
-                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                    <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    {% set counter = 1 %}
+                    {% for category in categories %}
+                    <li><a class="dropdown-item" href="#">
+                       <img src="{{ asset('build/images/category/') }}{{ category.categoryImage }}" alt="" class="te-img-cat"><span class="te-label-cat{{ counter }}">{{ category.categoryName }}</span></a></li>
+                        {% set counter = counter + 1 %}
+                    {% endfor %}
                 </ul>
             </li>
             </ul>

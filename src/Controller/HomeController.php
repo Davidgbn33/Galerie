@@ -2,7 +2,9 @@
 
 namespace App\Controller;
 
+use App\Entity\Category;
 use App\Entity\Paint;
+use App\Repository\CategoryRepository;
 use App\Repository\PaintRepository;
 
 use App\service\PaintService;
@@ -14,16 +16,21 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class HomeController extends AbstractController
 {
-    #[Route('/', name: 'home')]
-    public function index(PaintService $paintService, PaintRepository $paintRepository, Request $request,): Response
+    public function __construct(CategoryRepository $categoryRepository)
     {
-        /*$paints = $paintRepository->findAll();*/
+        $category = $categoryRepository->findAll();
+    }
 
+    #[Route('/', name: 'home')]
+    public function index(PaintService $paintService,CategoryRepository $categoryRepository, PaintRepository $paintRepository, Request $request,): Response
+    {
+        $category = $categoryRepository->findAll();
         $pagination = $paintService->getPaginatedPaints();
 
         return $this->render('home/index.html.twig', [
             /*'paints' => $paints,*/
             'pagination' => $pagination,
+            'categories'=> $category,
         ]);
     }
 #[Route('/show/{id}', name: 'show',methods: ['GET'])]
