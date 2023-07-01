@@ -2,6 +2,7 @@
 
 namespace App\Repository;
 
+use App\Entity\Category;
 use App\Entity\Paint;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
@@ -38,6 +39,12 @@ class PaintRepository extends ServiceEntityRepository
             $this->getEntityManager()->flush();
         }
     }
+
+    /*public function findForPagination(?Category $category= null)
+    {
+        $sq =$this->createQueryBuilder('a')
+        ->orderBy('a.c')
+    }*/
 
 //    /**
 //     * @return Paint[] Returns an array of Paint objects
