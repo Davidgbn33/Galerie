@@ -3,11 +3,21 @@ $te-text-Body-color: #000000;
 $te-bg-color: #E9E5E5;
 $te-fontFamily-Title: 'Playfair Display', serif;
 $te-fontFamily-Body: 'Roboto', sans-serif;
-$te-shadow: 4px 4px 4px $te-text-Body-color;
+$te-shadow: 1px 1px 5px $te-text-Body-color;
 
 .te-font-text{
     font-family: $te-fontFamily-Body;
     color: $te-text-Body-color;
 }
 
+h1{
+    font-family: $te-fontFamily-Title;
+    color: $te-text-Body-color;
+    font-size: large;
+    font-weight: bold;
+}
 
+h2 {
+    font-family: $te-fontFamily-Body;
+    color: $te-text-Body-color;
+}

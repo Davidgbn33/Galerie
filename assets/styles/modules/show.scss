@@ -1,0 +1,31 @@
+.te-grid{
+    display: grid;
+    grid:
+  "aside descriptif" 1fr
+ "comment comment" 200px
+    / 1fr 1fr;
+  height: 100vh;
+}
+
+aside {
+  grid-area: aside;
+}
+main {
+  grid-area: descriptif;
+}
+.te-grid-comment {
+    grid-area: comment;
+}
+
+.te-show-img {
+  width: 600px;
+  margin: 30px;
+  cursor: pointer;
+}
+
+.te-font-section{
+    font-family: $te-fontFamily-Title;
+}
+.te-p {
+  text-indent: 20px;
+}
