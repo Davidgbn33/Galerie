@@ -181,4 +181,5 @@ class Paint
 
         return $this;
     }
+
 }
