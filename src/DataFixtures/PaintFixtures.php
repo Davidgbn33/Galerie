@@ -181,7 +181,7 @@ class PaintFixtures extends Fixture
             'inspiration' => '',
             'image_inspiration' => '',
             'taille' => 'Papier 300 gr 60 x 40',
-            'category' => 'Peinture',
+            'category' => 'Aquarelle',
         ],
     ];
 

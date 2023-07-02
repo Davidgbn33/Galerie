@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello CategoryController!{% endblock %}
+
+{% block body %}
+    <div class="container d-flex  flex-wrap justify-content-center mt-3">
+        {% for paint in category.paints %}
+        <div class="card pb-0 m-3 p-3 te-bg te-shadow" style="width: 22rem;">
+            <div class="d-flex align-items-center justify-content-center" style="height: 110%;">
+                <a href="/show/{{ paint.id }}"><img class="card-img-top"
+                                                    src="{{ asset('build/images/aquarelle/') }}{{ paint.paintImage }}"
+                                                    alt=""></a>
+            </div>
+            <div class="card-body d-flex flex-column align-items-center justify-content-end pb-0 te-mx-height"
+                 style="height: 20%;">
+                <h5 class="card-title text-center">{{ paint.paintName }}</h5>
+                <h5 class="card-title text-center">{{ paint.taille }}</h5>
+            </div>
+        </div>
+
+    {% endfor %}
+{% endblock %}

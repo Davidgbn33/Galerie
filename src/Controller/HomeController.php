@@ -34,11 +34,12 @@ class HomeController extends AbstractController
         ]);
     }
 #[Route('/show/{id}', name: 'show',methods: ['GET'])]
-    public function show(Paint $paint): Response
+    public function show(Paint $paint,CategoryRepository $categoryRepository): Response
     {
-
+        $category = $categoryRepository->findAll();
         return $this->render('home/show.html.twig', [
             'paint' => $paint,
+            'categories' => $category,
         ]);
     }
 }

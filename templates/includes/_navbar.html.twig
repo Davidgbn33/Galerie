@@ -11,7 +11,7 @@
                 <ul class="dropdown-menu">
                     {% set counter = 1 %}
                     {% for category in categories %}
-                    <li><a class="dropdown-item" href="#">
+                    <li><a class="dropdown-item" href="{{ path('show_cat',{ id: category.id}) }}">
                        <img src="{{ asset('build/images/category/') }}{{ category.categoryImage }}" alt="" class="te-img-cat"><span class="te-label-cat{{ counter }}">{{ category.categoryName }}</span></a></li>
                         {% set counter = counter + 1 %}
                     {% endfor %}
