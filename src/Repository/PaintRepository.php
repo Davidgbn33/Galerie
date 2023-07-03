@@ -46,7 +46,7 @@ class PaintRepository extends ServiceEntityRepository
             ->orderBy('a.createdAt', 'DESC');
 
         if ($category) {
-            $qb->leftJoin('a.categories', 'c')
+            $qb->leftJoin('a.category', 'c')
                 ->where($qb->expr()->eq('c.id', ':id'))
                 ->setParameter('id', $category->getId());
         }
