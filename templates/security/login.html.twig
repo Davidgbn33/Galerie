@@ -3,8 +3,6 @@
 {% block title %}Log in!{% endblock %}
 
 {% block body %}
-<div class="container">
-        <form class="d-flex justify-content-center te-shadow w-75 p-5 te-form-m" method="post">
             {% if error %}
                 <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
             {% endif %}
@@ -14,6 +12,8 @@
                     You are logged in as {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Logout</a>
                 </div>
             {% endif %}
+<div class="container">
+        <form class="d-flex justify-content-center te-shadow w-75 p-5 te-form-m" method="post">
             <div class="d-flex justify-content-center flex-column te-form">
                 <h1 class="h3 mb-3 font-weight-normal text-center">Login</h1>
                 <label for="inputEmail">Email</label>
