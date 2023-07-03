@@ -13,8 +13,10 @@
             <h1 class="text-center mt-3 fs-1">{{ paint.paintName }}</h1>
             <h2 class="text-center my-3 fs-4 mb-5">{{ paint.taille }}</h2>
 
-            <p class="mb-1">Catégorie : <span>{{ paint.category }}</span></p>
-            <h3 class="te-font-section mt-0 mb-0">Histoire : </h3>
+            <div class="d-flex">
+            <p class="mb-1 me-1">Catégorie :</p><a class="dropdown-item" href="{{ path('show_cat',{ id: paint.category.id}) }}"><span class="te-border-cat"> {{ paint.category }}</span></a>
+            </div>
+                <h3 class="te-font-section mt-0 mb-0">Histoire : </h3>
             <hr class="w-75 mt-0">
             <p class="me-5 w-75 te-p">{{ paint.description }}</p>
 
@@ -24,7 +26,9 @@
                 <div class="d-flex ">
                 <p class=" w-50 me-3 te-p">{{ paint.inspiration }}</p>
                     <div class="d-flex">
+                        {% if paint.ImageInspiration != "" %}
                     <img class="te-img-inspi me-1" src="{{ asset('build/images/inspiration/') }}{{ paint.ImageInspiration }}" alt="">
+                    {% endif %}
                     </div>
           </div>
             {% endif %}
