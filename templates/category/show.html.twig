@@ -3,8 +3,9 @@
 {% block title %}Hello CategoryController!{% endblock %}
 
 {% block body %}
+
     <div class="container d-flex  flex-wrap justify-content-center mt-3">
-        {% for paint in category.paints %}
+        {% for paint in pagination %}
         <div class="card pb-0 m-3 p-3 te-bg te-shadow" style="width: 22rem;">
             <div class="d-flex align-items-center justify-content-center" style="height: 110%;">
                 <a href="/show/{{ paint.id }}"><img class="card-img-top"
@@ -19,4 +20,12 @@
         </div>
 
     {% endfor %}
+    </div>
+    <div class="container my-3">
+        <div class="row">
+            <div class="d-flex justify-content-center align-items-center">
+                {{ knp_pagination_render(pagination) }}
+            </div>
+        </div>
+    </div>
 {% endblock %}

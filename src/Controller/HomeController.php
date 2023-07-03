@@ -24,22 +24,21 @@ class HomeController extends AbstractController
     #[Route('/', name: 'home')]
     public function index(PaintService $paintService, Request $request,): Response
     {
-        $category = $this->categoryService->getAllCategories();
+        $categories = $this->categoryService->getAllCategories();
         $pagination = $paintService->getPaginatedPaints();
 
         return $this->render('home/index.html.twig', [
-            /*'paints' => $paints,*/
             'pagination' => $pagination,
-            'categories'=> $category,
+            'categories'=> $categories,
         ]);
     }
 #[Route('/show/{id}', name: 'show',methods: ['GET'])]
     public function show(Paint $paint,CategoryRepository $categoryRepository): Response
     {
-        $category = $this->categoryService->getAllCategories();
+        $categories = $this->categoryService->getAllCategories();
         return $this->render('home/show.html.twig', [
             'paint' => $paint,
-            'categories' => $category,
+            'categories' => $categories,
         ]);
     }
 }
