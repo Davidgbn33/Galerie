@@ -3,7 +3,9 @@
 namespace App\Controller;
 
 use App\Entity\Category;
+use App\Entity\Comment;
 use App\Entity\Paint;
+use App\Form\CommentType;
 use App\Repository\CategoryRepository;
 use App\Repository\PaintRepository;
 use App\Service\CategoryService;
@@ -27,18 +29,27 @@ class HomeController extends AbstractController
         $categories = $this->categoryService->getAllCategories();
         $pagination = $paintService->getPaginatedPaints();
 
+
+
         return $this->render('home/index.html.twig', [
             'pagination' => $pagination,
             'categories'=> $categories,
+
         ]);
     }
-#[Route('/show/{id}', name: 'show',methods: ['GET'])]
+#[Route('/show/{id}', name: 'show',methods: ['GET', 'POST'])]
     public function show(Paint $paint,CategoryRepository $categoryRepository): Response
     {
         $categories = $this->categoryService->getAllCategories();
-        return $this->render('home/show.html.twig', [
+
+        $comment = new Comment($paint);
+
+        $commentForm = $this->createForm(CommentType::class, $comment);
+
+        return $this->renderForm('home/show.html.twig', [
             'paint' => $paint,
             'categories' => $categories,
+            'commentForm' => $commentForm,
         ]);
     }
 }
