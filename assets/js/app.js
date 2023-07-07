@@ -8,6 +8,9 @@ require('bootstrap');
 // any CSS you import will output into a single css file (app.css in this case)
 import '../styles/app.scss';
 
+import './comment.js';
+
+
 // pour afficher le Flash Message
 var toastLiveExample = document.getElementById('liveToast')
 

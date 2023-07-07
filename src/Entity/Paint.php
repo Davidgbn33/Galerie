@@ -181,5 +181,8 @@ class Paint
 
         return $this;
     }
-
+    public function __toString(): string
+    {
+        return $this->paintName;   // TODO: Implement __toString() method.
+}
 }
