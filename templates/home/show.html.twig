@@ -39,20 +39,23 @@
         </main>
 
         <div class="te-grid-comment">
-            <div class="d-flex m-auto flex-column w-75">
-                <div >
-                    <h3>Ajout d'un Commentaire </h3>
-                    <hr class="w-75 mt-0">
-                </div>
-                <div class="form-floating">
-                <textarea class="form-control te-comment-form" placeholder="Leave a comment here" id="floatingTextarea2"
-                          style="height: 100px"></textarea>
-                    <label for="floatingTextarea2"></label>
-                </div>
+
+
+            <h3 class="ms-5">
+                <span id="comment-count">{{ paint.comment |length }}</span> commentaire(s)
+            </h3>
+
+            <hr class="w-75 mt-0 ms-5">
+
+            <div class="comment-area">
+                {{ form(commentForm,{ 'attr':{ 'class':'comment-form' }}) }}
             </div>
-            <div class="my-3">
-                <h3 class="ms-5">Les commentaires</h3>
-                <hr class="w-75 mt-0 ms-5">
+
+
+            <div class="my-3 comment-list">
+                {% for  comment in paint.comment %}
+                     {% include "comment/show.html.twig" with [comment] %}
+                {% endfor %}
             </div>
         </div>
 
