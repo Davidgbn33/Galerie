@@ -24,7 +24,15 @@ class Comment
     private ?User $user = null;
 
     #[ORM\ManyToOne(inversedBy: 'comment')]
-    private ?Paint $paint = null;
+    private ?Paint $paint;
+
+    /**
+     * @param Paint|null $paint
+     */
+    public function __construct(?Paint $paint)
+    {
+        $this->paint = $paint;
+    }
 
     public function getId(): ?int
     {
@@ -66,4 +74,6 @@ class Comment
 
         return $this;
     }
+
 }
+
