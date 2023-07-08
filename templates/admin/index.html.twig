@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Toiles et Papiers{% endblock %}
+
+{% block body %}
+    <h1>Création d'une nouvelle oeuvre</h1>
+
+    {{ include('admin/_form.html.twig') }}
+
+    {#<a href=\"{{ path('paint_index') }}\">Retour à la liste</a>#}
+
+{% endblock %}

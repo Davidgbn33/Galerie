@@ -4,3 +4,8 @@ services:
   App\Service\CategoryService:
     arguments:
       $categoryRepository: '@App\Repository\CategoryRepository'
+  App\Entity\Paint:
+  # Configuration de votre entité Paint
+parameters:
+
+  upload_directory: '%kernel.project_dir%/public/uploads/images/'

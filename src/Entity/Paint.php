@@ -8,8 +8,11 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 #[ORM\Entity(repositoryClass: PaintRepository::class)]
+#[Vich\Uploadable]
 class Paint
 {
     use TimestampableEntity;
@@ -28,11 +31,17 @@ class Paint
     #[ORM\Column(length: 255)]
     private ?string $paintImage = null;
 
+    #[Vich\UploadableField(mapping: 'paint_image_file', fileNameProperty: 'paintImage')]
+    private ?File $paintImageFile = null;
+
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $inspiration = null;
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $imageInspiration = null;
+
+    #[Vich\UploadableField(mapping: 'inspiration_file', fileNameProperty: 'imageInspiration')]
+    private ?File $inspirationFile = null;
 
     #[ORM\Column(length: 150)]
     private ?string $taille = null;
@@ -45,6 +54,7 @@ class Paint
 
     #[ORM\ManyToOne(inversedBy: 'paint')]
     private ?User $user = null;
+
 
     public function __construct()
     {
@@ -181,8 +191,31 @@ class Paint
 
         return $this;
     }
+
     public function __toString(): string
     {
         return $this->paintName;   // TODO: Implement __toString() method.
-}
+    }
+
+    public function getPaintImageFile(): ?File
+    {
+        return $this->paintImageFile;
+    }
+
+    public function setPaintImageFile(?File $paintImageFile): Paint
+    {
+        $this->paintImageFile = $paintImageFile;
+        return $this;
+    }
+
+    public function getInspirationFile(): ?File
+    {
+        return $this->inspirationFile;
+    }
+
+    public function setInspirationFile(?File $inspirationFile): Paint
+    {
+        $this->inspirationFile = $inspirationFile;
+        return $this;
+    }
 }

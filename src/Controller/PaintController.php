@@ -6,6 +6,7 @@ use App\Entity\Category;
 use App\Entity\Comment;
 use App\Entity\Paint;
 use App\Form\CommentType;
+use App\Form\PaintType;
 use App\Repository\CategoryRepository;
 use App\Repository\PaintRepository;
 use App\Service\CategoryService;
@@ -15,7 +16,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class HomeController extends AbstractController
+class PaintController extends AbstractController
 {
     private $categoryService;
     public function __construct(CategoryService $categoryService)
@@ -38,7 +39,7 @@ class HomeController extends AbstractController
         ]);
     }
 #[Route('/show/{id}', name: 'show',methods: ['GET', 'POST'])]
-    public function show(Paint $paint,CategoryRepository $categoryRepository): Response
+    public function show(Paint $paint): Response
     {
         $categories = $this->categoryService->getAllCategories();
 
@@ -52,4 +53,25 @@ class HomeController extends AbstractController
             'commentForm' => $commentForm,
         ]);
     }
+#[Route('/new', name: 'new', methods: ['GET', 'POST'])]
+    public function new(Request $request,PaintRepository $paintRepository): Response
+    {
+        $categories = $this->categoryService->getAllCategories();
+        $paint = new Paint();
+
+        $paintForm = $this->createForm(PaintType::class, $paint);
+        $paintForm->handleRequest($request);
+
+        if ($paintForm->isSubmitted() && $paintForm->isValid()) {
+            $paintRepository->save($paint, true);
+
+            return $this->redirectToRoute('home');
+        }
+        return $this->render('admin/index.html.twig', [
+            'paint' => $paint,
+            'categories' => $categories,
+            'paintForm' => $paintForm->createView(),
+        ]);
+    }
+
 }
