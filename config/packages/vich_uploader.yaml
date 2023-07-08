@@ -1,0 +1,15 @@
+vich_uploader:
+    db_driver: orm
+
+    metadata:
+        type: attribute
+
+    mappings:
+        paint_image_file: # Nouveau mapping pour le champ "paintImageFile"
+           uri_prefix: /uploads/images/paint/
+           upload_destination: '%upload_directory%/paint'
+           namer: Vich\UploaderBundle\Naming\SmartUniqueNamer
+        inspiration_file: # Nouveau mapping pour le champ "inspirationFile"
+           uri_prefix: /uploads/images/inspiration/
+           upload_destination: '%upload_directory%/inspiration'
+           namer: Vich\UploaderBundle\Naming\SmartUniqueNamer
