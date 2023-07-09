@@ -1,18 +1,29 @@
 .te-bg {
-  background: $te-bg-color;
+  background: #F5F5F5;
 }
 .te-shadow{
-  box-shadow: $te-shadow;
+  /*box-shadow: $te-shadow;*/
+  border: none;
 }
 .te-min-h{
   min-height: 635px;
 }
 .card{
   transition: transform .1s;
+  border-radius: 0;
 }
 .card:hover{
   -ms-transform: scale(1.0); /* IE 9 */
   -webkit-transform: scale(1.0); /* Safari 3-8 */
   transform: scale(1.1);
   z-index: 1;
+}
+.te-card-title {
+  position: absolute;
+}
+.card-img-top, .card-img{
+  border-radius: 0;
+}
+.card-img-top {
+  opacity: 80%;
 }
