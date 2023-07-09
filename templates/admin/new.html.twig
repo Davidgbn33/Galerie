@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Toiles et Papiers{% endblock %}
+
+{% block body %}
+
+    <div class="te-admin-grid">
+        <aside class="te-admin-aside">
+            <div class="te-admin-aside-content d-flex flex-column">
+                <a class="te-font-text mt-3" href="/admin"> Liste des oeuvres</a>
+                <a class="te-font-text" href="/admin/new">Nouvelle oeuvre</a>
+            </div>
+        </aside>
+        <main class="te-admin-main d-flex justify-content-center flex-column">
+            <h1 class="text-center fs-2 mt-3">Ajout d'une nouvelle oeuvre</h1>
+            <div class="container d-flex flex-column align-items-center">
+            <div class="te-admin-main-content m-3 p-4 w-75 ">
+
+                {{ include('admin/_form.html.twig') }}
+
+                <a href="{{ path('admin_list') }}">Retour à la liste</a>
+            </div>
+    </div>
+    </main>
+    </div>
+{% endblock %}
