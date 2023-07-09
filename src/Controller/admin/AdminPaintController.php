@@ -45,7 +45,7 @@ class AdminPaintController extends AbstractController
 
             return $this->redirectToRoute('home');
         }
-        return $this->render('admin/index.html.twig', [
+        return $this->render('admin/new.html.twig', [
             'paint' => $paint,
             'categories' => $categories,
             'paintForm' => $paintForm->createView(),

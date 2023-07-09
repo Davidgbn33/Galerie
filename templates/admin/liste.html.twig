@@ -3,28 +3,38 @@
 {% block title %}Toiles et Papiers{% endblock %}
 
 {% block body %}
-    <div class="container mt-5">
-    <div class="">
-    <table class="table">
-        <thead>
-        <tr>
-            <th scope="col">Nom du tableau</th>
-            <th scope="col">description</th>
-            <th scope="col">taille</th>
-            <th scope="col">Tableau</th>
-        </tr>
-        </thead>
-        <tbody>
-        {% for paint in paints %}
-        <tr>
-            <td>{{ paint.paintName }}</td>
-            <td>{{ paint.description }}</td>
-            <td>{{ paint.taille }}</td>
-            <td>{{ paint.paintImage }}</td>
-        </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-    </div>
-    </div>
+    <div class="te-admin-grid">
+    <aside class="te-admin-aside">
+        <div class="te-admin-aside-content d-flex flex-column">
+            <a class="te-font-text mt-3" href="/admin"> Liste des oeuvres</a>
+            <a class="te-font-text" href="/admin/new">Nouvelle oeuvre</a>
+        </div>
+    </aside>
+    <main class="te-admin-main d-flex justify-content-center flex-column">
+        <h1 class="text-center fs-2 mt-3">Liste des oeuvres</h1>
+        <div class="container mt-3">
+            <div class="">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th scope="col" class="te-col-name">Nom du tableau</th>
+                        <th scope="col">description</th>
+                        <th scope="col" class="te-col-taille">taille</th>
+                        <th scope="col">Tableau</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for paint in paints %}
+                        <tr>
+                            <td>{{ paint.paintName }}</td>
+                            <td>{{ paint.description }}</td>
+                            <td>{{ paint.taille }}</td>
+                            <td>{{ paint.paintImage }}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
 {% endblock %}

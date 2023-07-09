@@ -1,0 +1,33 @@
+.te-admin-grid{
+    display: grid;
+  grid :
+  'admin-aside admin-main' 1fr
+  / 200px 1fr;
+}
+
+
+.te-admin-aside{
+  grid-area: admin-aside;
+  border-right: 1px solid black;
+}
+
+.te-admin-main{
+  grid-area: admin-main;
+}
+
+.te-admin-main-content{
+  box-shadow: $te-shadow;
+}
+.te-admin-aside-content a{
+text-decoration: none;
+  color: black;
+  margin-bottom:2rem;
+  font-size : 1.5rem;
+}
+
+.te-col-name {
+  width: 10vw;
+}
+.te-col-taille {
+  width: 15vw;
+}
