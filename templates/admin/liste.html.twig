@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Toiles et Papiers{% endblock %}
+
+{% block body %}
+    <div class="container mt-5">
+    <div class="">
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">Nom du tableau</th>
+            <th scope="col">description</th>
+            <th scope="col">taille</th>
+            <th scope="col">Tableau</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for paint in paints %}
+        <tr>
+            <td>{{ paint.paintName }}</td>
+            <td>{{ paint.description }}</td>
+            <td>{{ paint.taille }}</td>
+            <td>{{ paint.paintImage }}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    </div>
+    </div>
+{% endblock %}
