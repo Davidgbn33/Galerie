@@ -38,26 +38,7 @@
             {% endif %}
         </main>
 
-        <div class="te-grid-comment">
-
-
-            <h3 class="ms-5">
-                <span id="comment-count">{{ paint.comment |length }}</span> commentaire(s)
-            </h3>
-
-            <hr class="w-75 mt-0 ms-5">
-
-            <div class="comment-area">
-                {{ form(commentForm,{ 'attr':{ 'class':'comment-form' }}) }}
-            </div>
-
-
-            <div class="my-3 comment-list">
-                {% for  comment in paint.comment %}
-                     {% include "comment/show.html.twig" with [comment] %}
-                {% endfor %}
-            </div>
-        </div>
+        {% include "./includes/_formComment.html.twig" %}
 
     </div>
     <script>

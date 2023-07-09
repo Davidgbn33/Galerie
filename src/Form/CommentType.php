@@ -26,7 +26,10 @@ class CommentType extends AbstractType
             ->add('paint', HiddenType::class, [
             ])
             ->add('send', SubmitType::class, [
-                'label'=>'Envoyer'
+                'label'=>'Envoyer',
+                'attr'=>[
+                    'class'=>'te-btn'
+                ]
             ])
         ;
 
