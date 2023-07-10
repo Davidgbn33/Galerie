@@ -24,7 +24,9 @@ class PaintType extends AbstractType
                 'allow_delete'  => true, // not mandatory, default is true
                 'download_uri' => true, // not mandatory, default is true
             ])
-            ->add('inspiration', TextType::class)
+            ->add('inspiration', TextType::class, [
+                'required' => false,
+            ])
             ->add('inspirationFile', VichFileType::class, [
                 'label' => 'Image Inspiration (JPG, PNG, GIF)',
                 'required'      => false,
