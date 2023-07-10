@@ -17,19 +17,23 @@
                 <table class="table">
                     <thead>
                     <tr>
-                        <th scope="col" class="te-col-name">Nom du tableau</th>
-                        <th scope="col">description</th>
-                        <th scope="col" class="te-col-taille">taille</th>
-                        <th scope="col">Tableau</th>
+                        <th  class="te-col-name">Nom du tableau</th>
+                        <th  class="te-col-desc">description</th>
+                        <th  class="te-col-taille">taille</th>
+                        <th  class="te-col-tableau">Tableau</th>
+                        <th  class="te-col-inspi">Inspiration</th>
+                        <th  class="te-col-taille">Modifier</th>
                     </tr>
                     </thead>
                     <tbody>
                     {% for paint in paints %}
                         <tr>
-                            <td>{{ paint.paintName }}</td>
-                            <td>{{ paint.description }}</td>
-                            <td>{{ paint.taille }}</td>
-                            <td>{{ paint.paintImage }}</td>
+                            <td class="te-col-name">{{ paint.paintName }}</td>
+                            <td class="te-col-desc">{{ paint.description }}</td>
+                            <td class="te-col-taille">{{ paint.taille }}</td>
+                            <td class="te-col-tableau">{{ paint.paintImage }}</td>
+                            <td class="te-col-inspi">{{ paint.inspiration }}</td>
+                            <td class="te-col-taille"><a href="{{ path('adminedit',{ id: paint.id}) }}">Modifier</a></td>
                         </tr>
                     {% endfor %}
                     </tbody>
