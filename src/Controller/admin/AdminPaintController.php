@@ -2,6 +2,7 @@
 
 namespace App\Controller\admin;
 
+use AllowDynamicProperties;
 use App\Entity\Paint;
 use App\Form\PaintType;
 use App\Repository\PaintRepository;
@@ -11,10 +12,9 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-#[Route('/admin', name: 'admin')]
+#[AllowDynamicProperties] #[Route('/admin', name: 'admin')]
 class AdminPaintController extends AbstractController
 {
-    private $categoryService;
     public function __construct(CategoryService $categoryService)
     {
         $this->categoryService = $categoryService;
@@ -84,6 +84,4 @@ class AdminPaintController extends AbstractController
 
         return $this->redirectToRoute('admin_list',[], Response::HTTP_SEE_OTHER);
     }
-
-
 }
