@@ -35,7 +35,7 @@ class PaintController extends AbstractController
 
         ]);
     }
-#[Route('/show/{id}', name: 'show',methods: ['GET', 'POST'])]
+#[Route('/show/{slug}', name: 'show',methods: ['GET', 'POST'])]
     public function show(Paint $paint): Response
     {
         $categories = $this->categoryService->getAllCategories();

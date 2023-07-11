@@ -35,7 +35,7 @@
                             <td class="te-col-tableau">{{ paint.paintImage }}</td>
                             <td class="te-col-inspi">{{ paint.inspiration }}</td>
                             <td class="te-col-modify"><a href="{{ path('adminedit',{ id: paint.id}) }}"><i class="fa-regular fa-pen-to-square" style="color: #1b1a21;"></i></a></td>
-                            {#<td class="te-col-modify">{{ include('admin/_delete.html.twig') }}</td>#}
+                            <td class="te-col-modify">{{ include('admin/_delete.html.twig') }}</td>
                         </tr>
                     {% endfor %}
                     </tbody>

@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\PaintRepository;
+use Cocur\Slugify\Slugify;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
@@ -31,8 +32,7 @@ class Paint
     #[Assert\NotBlank(message: 'Veuillez saisir une description')]
     private ?string $description = null;
 
-    #[ORM\Column(length: 255, nullable: true,)]
-
+    #[ORM\Column(length: 255, nullable: true, )]
     private ?string $paintImage = null;
 
     #[Vich\UploadableField(mapping: 'paint_image_file', fileNameProperty: 'paintImage')]
@@ -61,6 +61,20 @@ class Paint
     #[ORM\ManyToOne(inversedBy: 'paint')]
     private ?User $user = null;
 
+    #[ORM\Column(length: 255, nullable: false)]
+    private ?string $slug = null;
+
+
+    public function getSlug(): ?string
+    {
+        return $this->slug;
+    }
+
+    public function setSlug(?string $slug): void
+    {
+        $this->slug = $slug;
+    }
+
 
     public function __construct()
     {
@@ -80,6 +94,9 @@ class Paint
     public function setPaintName(?string $paintName): static
     {
         $this->paintName = $paintName;
+        $slugify= new Slugify();
+        $slug =  $slugify->slugify($this->paintName);
+        $this->setSlug($slug);
 
         return $this;
     }
