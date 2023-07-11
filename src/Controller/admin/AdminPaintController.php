@@ -7,6 +7,8 @@ use App\Entity\Paint;
 use App\Form\PaintType;
 use App\Repository\PaintRepository;
 use App\service\CategoryService;
+use App\service\UploadFile;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -15,9 +17,12 @@ use Symfony\Component\Routing\Annotation\Route;
 #[AllowDynamicProperties] #[Route('/admin', name: 'admin')]
 class AdminPaintController extends AbstractController
 {
-    public function __construct(CategoryService $categoryService)
+    private  $uploadFile;
+    public function __construct(CategoryService $categoryService,UploadFile $uploadFile,EntityManagerInterface $em)
     {
         $this->categoryService = $categoryService;
+        $this->uploadFile = $uploadFile;
+        $this->em = $em;
     }
 
     #[Route('/', name: '_list', methods: ['GET'])]
@@ -41,7 +46,11 @@ class AdminPaintController extends AbstractController
         $paintForm->handleRequest($request);
 
         if ($paintForm->isSubmitted() && $paintForm->isValid()) {
-            $paintRepository->save($paint, true);
+            $file = $paintForm["paintImageFile"]->getData();
+            $filename = $this->uploadFile->saveFile($file);
+            $paint->setpaintImage($filename);
+            $this->em->persist($paint);
+            $this->em->flush();
 
             return $this->redirectToRoute('home');
         }
@@ -60,6 +69,11 @@ class AdminPaintController extends AbstractController
         $paintForm->handleRequest($request);
 
         if ($paintForm->isSubmitted() && $paintForm->isValid()) {
+            $file = $paintForm["paintImageFile"]->getData();
+            if($file){
+                $filename = $this->uploadFile->updateFile($file, $paint->getPaintImage());
+                $paint->setPaintImage($filename);
+            }
             $paintRepository->save($paint, true);
 
 
@@ -74,7 +88,12 @@ class AdminPaintController extends AbstractController
     }
 
     #[Route('/{id}', name: 'delete', methods: ['GET','POST'])]
-    public function delete(Request $request, Paint $paint, PaintRepository $paintRepository): Response
+    public function delete(
+        Request $request,
+        Paint $paint,
+        PaintRepository $paintRepository,
+        EntityManagerInterface $manager
+    ): Response
     {
         if ($this->isCsrfTokenValid('delete'.$paint->getId(), $request->request->get('_token'))) {
 

@@ -10,11 +10,9 @@ use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
 use Symfony\Component\HttpFoundation\File\File;
-use Vich\UploaderBundle\Mapping\Annotation as Vich;
 use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: PaintRepository::class)]
-#[Vich\Uploadable]
 class Paint
 {
     use TimestampableEntity;
@@ -32,20 +30,17 @@ class Paint
     #[Assert\NotBlank(message: 'Veuillez saisir une description')]
     private ?string $description = null;
 
-    #[ORM\Column(length: 255, nullable: true, )]
+    #[ORM\Column(length: 255, nullable: true )]
     private ?string $paintImage = null;
 
-    #[Vich\UploadableField(mapping: 'paint_image_file', fileNameProperty: 'paintImage')]
-    #[Assert\NotBlank(message: 'Veuillez ajouter une image')]
-    private ?File $paintImageFile = null;
+    private ?string $paintImageFile = null;
 
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $inspiration = null;
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $imageInspiration = null;
-    #[Vich\UploadableField(mapping: 'inspiration_file', fileNameProperty: 'imageInspiration')]
-    private ?File $inspirationFile = null;
+    private ?string $inspirationFile = null;
 
     #[ORM\Column(length: 150)]
     #[Assert\NotBlank(message: 'Veuillez renseigner une taille')]
@@ -117,7 +112,7 @@ class Paint
         return $this->paintImage;
     }
 
-    public function setPaintImage(string $paintImage): static
+    public function setPaintImage(string $paintImage): self
     {
         $this->paintImage = $paintImage;
 
@@ -219,23 +214,23 @@ class Paint
         return $this->paintName;   // TODO: Implement __toString() method.
     }
 
-    public function getPaintImageFile(): ?File
+    public function getPaintImageFile(): ?string
     {
         return $this->paintImageFile;
     }
 
-    public function setPaintImageFile(?File $paintImageFile): Paint
+    public function setPaintImageFile(?string $paintImageFile): self
     {
         $this->paintImageFile = $paintImageFile;
         return $this;
     }
 
-    public function getInspirationFile(): ?File
+    public function getInspirationFile(): ?string
     {
         return $this->inspirationFile;
     }
 
-    public function setInspirationFile(?File $inspirationFile): Paint
+    public function setInspirationFile(?string $inspirationFile): self
     {
         $this->inspirationFile = $inspirationFile;
         return $this;

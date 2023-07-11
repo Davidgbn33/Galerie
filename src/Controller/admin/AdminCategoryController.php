@@ -40,9 +40,10 @@ class AdminCategoryController extends AbstractController
         $categoryForm->handleRequest($request);
 
         if ($categoryForm->isSubmitted() && $categoryForm->isValid()) {
+
             $categoryRepository->save($category, true);
 
-            return $this->redirectToRoute('admin/category');
+            return $this->redirectToRoute('admin_admin_category');
         }
         return $this->render('admin/category/new.html.twig', [
             'category'=> $category,
