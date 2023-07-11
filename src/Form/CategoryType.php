@@ -18,6 +18,7 @@ class CategoryType extends AbstractType
                 'required'=> false
             ])
             ->add('categoryFile',FileType::class, [
+                'required' => false,
                 'mapped'=> false,
             ])
         ;

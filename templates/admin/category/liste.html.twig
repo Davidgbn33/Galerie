@@ -8,8 +8,8 @@
         <div class="te-admin-aside-content d-flex flex-column">
             <a class="te-font-text mt-3" href="/admin"> Liste des oeuvres</a>
             <a class="te-font-text" href="/admin/new">Nouvelle oeuvre</a>
-            <a class="te-font-text" href="/admin/category">Liste des catégories</a>
-            <a class="te-font-text" href="/admin/category/new">Nouvelle catégorie</a>
+            <a class="te-font-text" href="/admin_cat/category">Liste des catégories</a>
+            <a class="te-font-text" href="/admin_cat/category/new">Nouvelle catégorie</a>
         </div>
     </aside>
     <main class="te-admin-main d-flex justify-content-center flex-column">
@@ -21,6 +21,8 @@
                     <tr>
                         <th  class="te-col-name">Nom de la catégorie</th>
                         <th  class="te-col-desc">Image de la catégorie</th>
+                        <th  class="te-col-desc text-center">Modifier</th>
+                        <th  class="te-col-desc">Supprimer</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -28,8 +30,8 @@
                         <tr>
                             <td class="te-col-name">{{ category.categoryName }}</td>
                             <td class="te-col-desc">{{ category.categoryImage }}</td>
-              {#              <td class="te-col-modify"><a href="{{ path('adminedit',{ id: paint.id}) }}"><i class="fa-regular fa-pen-to-square" style="color: #1b1a21;"></i></a></td>
-                            <td class="te-col-modify">{{ include('admin/_delete.html.twig') }}</td>#}
+                         <td class="te-col-modify"><a href="{{ path('admin_cat_edit',{ id: category.id}) }}"><i class="fa-regular fa-pen-to-square" style="color: #1b1a21;"></i></a></td>
+                            <td class="te-col-modify">{{ include('admin/category/_delete.html.twig') }}</td>
                         </tr>
                     {% endfor %}
                     </tbody>

@@ -24,39 +24,7 @@ class Category
     #[ORM\Column(length: 100, nullable: true)]
     private ?string $categoryImage = null;
 
-    /**
-     * @return string|null
-     */
-    public function getCategoryFile(): ?string
-    {
-        return $this->categoryFile;
-    }
-
-    /**
-     * @param string|null $categoryFile
-     */
-    public function setCategoryFile(?string $categoryFile): void
-    {
-        $this->categoryFile = $categoryFile;
-    }
-
     private ?string $categoryFile = null;
-
-    /**
-     * @return string|null
-     */
-    public function getCategoryImage(): ?string
-    {
-        return $this->categoryImage;
-    }
-
-    /**
-     * @param string|null $categoryImage
-     */
-    public function setCategoryImage(?string $categoryImage): void
-    {
-        $this->categoryImage = $categoryImage;
-    }
 
     #[ORM\OneToMany(mappedBy: 'category', targetEntity: Paint::class)]
     private Collection $paints;
@@ -83,7 +51,21 @@ class Category
         return $this;
     }
 
+    /**
+     * @return string|null
+     */
+    public function getCategoryImage(): ?string
+    {
+        return $this->categoryImage;
+    }
 
+    /**
+     * @param string|null $categoryImage
+     */
+    public function setCategoryImage(?string $categoryImage): void
+    {
+        $this->categoryImage = $categoryImage;
+    }
 
     /**
      * @return Collection<int, Paint>
@@ -113,6 +95,21 @@ class Category
         }
 
         return $this;
+    }
+    /**
+     * @return string|null
+     */
+    public function getCategoryFile(): ?string
+    {
+        return $this->categoryFile;
+    }
+
+    /**
+     * @param string|null $categoryFile
+     */
+    public function setCategoryFile(?string $categoryFile): void
+    {
+        $this->categoryFile = $categoryFile;
     }
 
     public function __toString(): string
