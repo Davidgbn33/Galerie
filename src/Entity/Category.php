@@ -27,6 +27,24 @@ class Category
     /**
      * @return string|null
      */
+    public function getCategoryFile(): ?string
+    {
+        return $this->categoryFile;
+    }
+
+    /**
+     * @param string|null $categoryFile
+     */
+    public function setCategoryFile(?string $categoryFile): void
+    {
+        $this->categoryFile = $categoryFile;
+    }
+
+    private ?string $categoryFile = null;
+
+    /**
+     * @return string|null
+     */
     public function getCategoryImage(): ?string
     {
         return $this->categoryImage;
