@@ -30,7 +30,7 @@ class Paint
     #[Assert\NotBlank(message: 'Veuillez saisir une description')]
     private ?string $description = null;
 
-    #[ORM\Column(length: 255, nullable: true )]
+    #[ORM\Column(length: 255, nullable: true)]
     private ?string $paintImage = null;
 
     private ?string $paintImageFile = null;
@@ -58,22 +58,11 @@ class Paint
     #[ORM\Column(length: 255, nullable: false)]
     private ?string $slug = null;
 
-
-    public function getSlug(): ?string
-    {
-        return $this->slug;
-    }
-
-    public function setSlug(?string $slug): void
-    {
-        $this->slug = $slug;
-    }
-
-
     public function __construct()
     {
         $this->comment = new ArrayCollection();
     }
+
 
     public function getId(): ?int
     {
@@ -88,8 +77,8 @@ class Paint
     public function setPaintName(?string $paintName): static
     {
         $this->paintName = $paintName;
-        $slugify= new Slugify();
-        $slug =  $slugify->slugify($this->paintName);
+        $slugify = new Slugify();
+        $slug = $slugify->slugify($this->paintName);
         $this->setSlug($slug);
 
         return $this;
@@ -155,9 +144,6 @@ class Paint
         return $this;
     }
 
-    /**
-     * @return Collection<int, Comment>
-     */
     public function getComment(): Collection
     {
         return $this->comment;
@@ -209,10 +195,6 @@ class Paint
         return $this;
     }
 
-    public function __toString(): string
-    {
-        return $this->paintName;   // TODO: Implement __toString() method.
-    }
 
     public function getPaintImageFile(): ?string
     {
@@ -234,5 +216,20 @@ class Paint
     {
         $this->inspirationFile = $inspirationFile;
         return $this;
+    }
+
+    public function __toString(): string
+    {
+        return $this->paintName;   // TODO: Implement __toString() method.
+    }
+
+    public function getSlug(): ?string
+    {
+        return $this->slug;
+    }
+
+    public function setSlug(?string $slug): void
+    {
+        $this->slug = $slug;
     }
 }
