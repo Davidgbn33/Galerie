@@ -13,9 +13,13 @@ use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 class PaintFixtures extends Fixture
 {
     public const CATEGORY = [
-        'Aquarelle',
-        'Pastel',
-        'Peinture',
+       1=>[ 'category_name'=>'Aquarelle',
+            'category_image'=> 'aquarelle.jpg'],
+        2=>[ 'category_name'=>'Pastel',
+            'category_image'=>'pastel.jpg'],
+        3=>[ 'category_name'=>'Peinture',
+            'category_image'=>'pinceau.jpg'],
+
     ];
     public const PAINT = [
         1 => [
@@ -429,10 +433,11 @@ class PaintFixtures extends Fixture
 
 
         $categories = [];
-        foreach (self::CATEGORY as $value) {
+        foreach (self::CATEGORY as $keys=>$value) {
             $category = new Category();
-            $category->setCategoryName($value);
-            $this->addReference('category_' . $value, $category);
+            $category->setCategoryName($value['category_name']);
+            $category->setCategoryImage($value['category_image']);
+            $this->addReference('category_' . $value['category_name'], $category);
             $manager->persist($category);
 
 
