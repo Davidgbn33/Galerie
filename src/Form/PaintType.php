@@ -16,13 +16,15 @@ class PaintType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('paintName', TextType::class)
+            ->add('paintName', TextType::class,[
+                'required'=> false
+            ])
             ->add('description', TextType::class)
             ->add('paintImageFile', VichFileType::class, [
                 'label' => 'Image (JPG, PNG, GIF)',
                 'required'      => false,
-                'allow_delete'  => true, // not mandatory, default is true
-                'download_uri' => true, // not mandatory, default is true
+                'allow_delete'  => true,
+                'download_uri' => true,
             ])
             ->add('inspiration', TextType::class, [
                 'required' => false,
@@ -30,8 +32,8 @@ class PaintType extends AbstractType
             ->add('inspirationFile', VichFileType::class, [
                 'label' => 'Image Inspiration (JPG, PNG, GIF)',
                 'required'      => false,
-                'allow_delete'  => true, // not mandatory, default is true
-                'download_uri' => true, // not mandatory, default is true
+                'allow_delete'  => true,
+                'download_uri' => true,
             ])
             ->add('taille',TextType::class)
             ->add('category', EntityType::class, [
