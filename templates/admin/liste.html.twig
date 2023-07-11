@@ -23,6 +23,7 @@
                         <th  class="te-col-tableau">Tableau</th>
                         <th  class="te-col-inspi">Inspiration</th>
                         <th  class="te-col-taille">Modifier</th>
+                        <th  class="te-col-taille">Supprimer</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -33,7 +34,8 @@
                             <td class="te-col-taille">{{ paint.taille }}</td>
                             <td class="te-col-tableau">{{ paint.paintImage }}</td>
                             <td class="te-col-inspi">{{ paint.inspiration }}</td>
-                            <td class="te-col-taille"><a href="{{ path('adminedit',{ id: paint.id}) }}">Modifier</a></td>
+                            <td class="te-col-modify"><a href="{{ path('adminedit',{ id: paint.id}) }}"><i class="fa-regular fa-pen-to-square" style="color: #1b1a21;"></i></a></td>
+                            {#<td class="te-col-modify">{{ include('admin/_delete.html.twig') }}</td>#}
                         </tr>
                     {% endfor %}
                     </tbody>

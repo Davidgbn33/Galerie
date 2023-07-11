@@ -50,6 +50,4 @@ class PaintController extends AbstractController
             'commentForm' => $commentForm,
         ]);
     }
-
-
 }

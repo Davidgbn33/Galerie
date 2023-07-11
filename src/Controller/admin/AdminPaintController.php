@@ -72,4 +72,18 @@ class AdminPaintController extends AbstractController
             'categories' => $categories,
         ]);
     }
+
+    #[Route('/{id}', name: 'delete', methods: ['GET','POST'])]
+    public function delete(Request $request, Paint $paint, PaintRepository $paintRepository): Response
+    {
+        if ($this->isCsrfTokenValid('delete'.$paint->getId(), $request->request->get('_token'))) {
+
+            $paintRepository->remove($paint, true);
+        }
+        /*$this->addFlash('danger', 'le tableau va être supprimé');*/
+
+        return $this->redirectToRoute('admin_list',[], Response::HTTP_SEE_OTHER);
+    }
+
+
 }

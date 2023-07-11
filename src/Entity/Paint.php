@@ -10,6 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
 use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: PaintRepository::class)]
 #[Vich\Uploadable]
@@ -23,12 +24,13 @@ class Paint
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank(message: 'Veuillez saisir un nom de peinture')]
     private ?string $paintName = null;
 
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $description = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 255, nullable: true,)]
     private ?string $paintImage = null;
 
     #[Vich\UploadableField(mapping: 'paint_image_file', fileNameProperty: 'paintImage')]
@@ -46,7 +48,7 @@ class Paint
     #[ORM\Column(length: 150)]
     private ?string $taille = null;
 
-    #[ORM\OneToMany(mappedBy: 'paint', targetEntity: Comment::class)]
+    #[ORM\OneToMany(mappedBy: 'paint', targetEntity: Comment::class, cascade: ['persist', 'remove'])]
     private Collection $comment;
 
     #[ORM\ManyToOne(inversedBy: 'paints')]
@@ -71,7 +73,7 @@ class Paint
         return $this->paintName;
     }
 
-    public function setPaintName(string $paintName): static
+    public function setPaintName(?string $paintName): static
     {
         $this->paintName = $paintName;
 
