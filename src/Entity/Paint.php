@@ -44,7 +44,6 @@ class Paint
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $imageInspiration = null;
-
     #[Vich\UploadableField(mapping: 'inspiration_file', fileNameProperty: 'imageInspiration')]
     private ?File $inspirationFile = null;
 
