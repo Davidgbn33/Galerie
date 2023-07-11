@@ -2,6 +2,7 @@
     display: grid;
   grid :
   'admin-aside admin-main' 1fr
+
   / 200px 1fr;
 }
 
@@ -42,4 +43,8 @@ text-decoration: none;
 }
 .te-col-modify{
   text-align: center;
+}
+
+.te-height-cat{
+  height: calc(100vh - 100px);
 }
