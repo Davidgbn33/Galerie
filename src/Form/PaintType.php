@@ -2,6 +2,7 @@
 
 namespace App\Form;
 
+use App\Entity\Category;
 use App\Entity\Paint;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
@@ -22,24 +23,19 @@ class PaintType extends AbstractType
             ->add('description', TextType::class,[
                 'required'      => false,
             ])
-            ->add('paintImageFile', VichFileType::class, [
-                'label' => 'Image (JPG, PNG, GIF)',
-                'required'      => false,
-                'allow_delete'  => true,
-                'download_uri' => true,
+
+            ->add('paintImageFile', FileType::class,[
+                'required'=> false
             ])
             ->add('inspiration', TextType::class, [
                 'required' => false,
             ])
-            ->add('inspirationFile', VichFileType::class, [
-                'label' => 'Image Inspiration (JPG, PNG, GIF)',
-                'required'      => false,
-                'allow_delete'  => true,
-                'download_uri' => true,
+            ->add('inspirationFile', FileType::class, [
+                'required'=> false
             ])
             ->add('taille',TextType::class)
             ->add('category', EntityType::class, [
-                'class' => 'App\Entity\Category',
+                'class' => Category::class,
                 'choice_label' => 'categoryName',
             ])
         ;

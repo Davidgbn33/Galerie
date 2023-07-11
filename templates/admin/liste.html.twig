@@ -26,6 +26,7 @@
                         <th  class="te-col-inspi">Inspiration</th>
                         <th  class="te-col-taille">Modifier</th>
                         <th  class="te-col-taille">Supprimer</th>
+                        <th  class="te-col-taille">image</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -38,6 +39,8 @@
                             <td class="te-col-inspi">{{ paint.inspiration }}</td>
                             <td class="te-col-modify"><a href="{{ path('adminedit',{ id: paint.id}) }}"><i class="fa-regular fa-pen-to-square" style="color: #1b1a21;"></i></a></td>
                             <td class="te-col-modify">{{ include('admin/_delete.html.twig') }}</td>
+                            <td class="te-col-inspi"><img class="te-admin-show-img" src="{{ asset('uploads/images/paint/') }}{{ paint.paintImage }}"
+                                                          alt="{{ paint.paintImage }}"</td>
                         </tr>
                     {% endfor %}
                     </tbody>
