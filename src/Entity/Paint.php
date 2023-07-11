@@ -28,12 +28,15 @@ class Paint
     private ?string $paintName = null;
 
     #[ORM\Column(type: Types::TEXT, nullable: true)]
+    #[Assert\NotBlank(message: 'Veuillez saisir une description')]
     private ?string $description = null;
 
     #[ORM\Column(length: 255, nullable: true,)]
+
     private ?string $paintImage = null;
 
     #[Vich\UploadableField(mapping: 'paint_image_file', fileNameProperty: 'paintImage')]
+    #[Assert\NotBlank(message: 'Veuillez ajouter une image')]
     private ?File $paintImageFile = null;
 
     #[ORM\Column(type: Types::TEXT, nullable: true)]
@@ -46,6 +49,7 @@ class Paint
     private ?File $inspirationFile = null;
 
     #[ORM\Column(length: 150)]
+    #[Assert\NotBlank(message: 'Veuillez renseigner une taille')]
     private ?string $taille = null;
 
     #[ORM\OneToMany(mappedBy: 'paint', targetEntity: Comment::class, cascade: ['persist', 'remove'])]

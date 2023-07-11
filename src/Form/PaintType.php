@@ -19,7 +19,9 @@ class PaintType extends AbstractType
             ->add('paintName', TextType::class,[
                 'required'=> false
             ])
-            ->add('description', TextType::class)
+            ->add('description', TextType::class,[
+                'required'      => false,
+            ])
             ->add('paintImageFile', VichFileType::class, [
                 'label' => 'Image (JPG, PNG, GIF)',
                 'required'      => false,
