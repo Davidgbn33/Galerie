@@ -26,7 +26,7 @@ class Category
 
     private ?string $categoryFile = null;
 
-    #[ORM\OneToMany(mappedBy: 'category', targetEntity: Paint::class)]
+    #[ORM\OneToMany(mappedBy: 'category', targetEntity: Paint::class, cascade: ['persist', 'remove'])]
     private Collection $paints;
 
     public function __construct()

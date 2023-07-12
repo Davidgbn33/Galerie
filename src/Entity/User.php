@@ -38,10 +38,10 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(length: 100)]
     private ?string $fullname = null;
 
-    #[ORM\OneToMany(mappedBy: 'user', targetEntity: Comment::class)]
+    #[ORM\OneToMany(mappedBy: 'user', targetEntity: Comment::class, cascade: ['persist', 'remove'])]
     private Collection $comments;
 
-    #[ORM\OneToMany(mappedBy: 'user', targetEntity: Paint::class)]
+    #[ORM\OneToMany(mappedBy: 'user', targetEntity: Paint::class, cascade: ['persist', 'remove'])]
     private Collection $paint;
 
     #[ORM\Column(type: 'boolean')]
