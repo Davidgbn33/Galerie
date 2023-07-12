@@ -49,7 +49,7 @@ class Paint
     #[ORM\OneToMany(mappedBy: 'paint', targetEntity: Comment::class, cascade: ['persist', 'remove'])]
     private Collection $comment;
 
-    #[ORM\ManyToOne(cascade: ['persist', 'remove'], inversedBy: 'paints')]
+    #[ORM\ManyToOne(inversedBy: 'paints')]
     private ?Category $category = null;
 
     #[ORM\ManyToOne(inversedBy: 'paint')]
