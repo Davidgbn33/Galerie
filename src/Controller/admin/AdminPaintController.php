@@ -30,7 +30,7 @@ class AdminPaintController extends AbstractController
     {
         $categories = $this->categoryService->getAllCategories();
         $paints = $paintRepository->findAll();
-        return $this->render('admin/liste.html.twig', [
+        return $this->render('admin/paint/liste.html.twig', [
             'paints' => $paints,
             'categories' => $categories,
         ]);
@@ -54,7 +54,7 @@ class AdminPaintController extends AbstractController
 
             return $this->redirectToRoute('home');
         }
-        return $this->render('admin/new.html.twig', [
+        return $this->render('admin/paint/new.html.twig', [
             'paint' => $paint,
             'categories' => $categories,
             'paintForm' => $paintForm->createView(),
@@ -80,7 +80,7 @@ class AdminPaintController extends AbstractController
             return $this->redirectToRoute('admin_list', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->renderForm('admin/new.html.twig', [
+        return $this->renderForm('admin/paint/new.html.twig', [
             'paint' => $paint,
             'paintForm' => $paintForm,
             'categories' => $categories,

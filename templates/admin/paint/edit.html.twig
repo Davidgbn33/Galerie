@@ -6,19 +6,14 @@
 
     <div class="te-admin-grid">
         <aside class="te-admin-aside">
-            <div class="te-admin-aside-content d-flex flex-column">
-                <a class="te-font-text mt-3" href="/admin"> Liste des oeuvres</a>
-                <a class="te-font-text" href="/admin/new">Nouvelle oeuvre</a>
-                <a class="te-font-text" href="/admin_cat/category">Liste des catégories</a>
-                <a class="te-font-text" href="/admin_cat/category/new">Nouvelle catégorie</a>
-            </div>
+            {{ include('admin/includes/_aside.html.twig') }}
         </aside>
         <main class="te-admin-main d-flex justify-content-center flex-column">
             <h1 class="text-center fs-2 mt-3">Modifier une oeuvre</h1>
             <div class="container d-flex flex-column align-items-center">
                 <div class="te-admin-main-content m-3 p-4 w-75 ">
 
-                    {{ include('admin/_form.html.twig') }}
+                    {{ include('admin/paint/_form.html.twig') }}
 
                 </div>
             </div>
