@@ -18,19 +18,17 @@
                         <th  class="te-col-desc">Roles</th>
                         <th  class="te-col-desc">Email</th>
                         <th  class="te-col-desc">Nbre de commentaire</th>
-                        <th  class="te-col-desc text-center">Modifier</th>
                         <th  class="te-col-desc text-center">Supprimer</th>
                     </tr>
                     </thead>
                     <tbody>
                     {% for user in users %}
-                    {{ dump() }}
                        <tr>
                             <td class="te-col-name">{{ user.fullname }}</td>
                             <td class="te-col-desc">{{ user.roles.0 }}</td>
                             <td class="te-col-desc">{{ user.email }}</td>
                            <td class="te-col-desc">{{ user.comments| length }}</td>
-                            <td class="te-col-desc"></td>
+                           <td class="te-col-modify">{{ include('admin/user/_delete.html.twig') }}</td>
                         </tr>
                     {% endfor %}
                     </tbody>
