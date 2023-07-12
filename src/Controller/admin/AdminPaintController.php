@@ -7,6 +7,7 @@ use App\Entity\Paint;
 use App\Form\PaintType;
 use App\Repository\PaintRepository;
 use App\service\CategoryService;
+use App\service\PaintService;
 use App\service\UploadFile;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -26,12 +27,12 @@ class AdminPaintController extends AbstractController
     }
 
     #[Route('/', name: '_list', methods: ['GET'])]
-    public function index(PaintRepository $paintRepository): Response
+    public function index(PaintService $paintService): Response
     {
         $categories = $this->categoryService->getAllCategories();
-        $paints = $paintRepository->findAll();
+        $pagination = $paintService->getPaginatedPaintsAdmin();
         return $this->render('admin/paint/liste.html.twig', [
-            'paints' => $paints,
+            'pagination' => $pagination,
             'categories' => $categories,
         ]);
     }
