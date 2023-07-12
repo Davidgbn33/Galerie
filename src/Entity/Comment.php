@@ -20,10 +20,10 @@ class Comment
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $comment = null;
 
-    #[ORM\ManyToOne(cascade: ['persist', 'remove'], inversedBy: 'comments')]
+    #[ORM\ManyToOne( inversedBy: 'comments')]
     private ?User $user = null;
 
-    #[ORM\ManyToOne(cascade: ['persist', 'remove'], inversedBy: 'comment')]
+    #[ORM\ManyToOne( inversedBy: 'comment')]
     private ?Paint $paint;
 
     /**
