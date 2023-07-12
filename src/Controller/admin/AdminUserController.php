@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 
-#[AllowDynamicProperties] #[Route ('/admin/user', name: 'admin_user')]
+#[AllowDynamicProperties] #[Route ('/admin_user', name: 'admin_user')]
 class AdminUserController extends AbstractController
 {
     public function __construct(CategoryService $categoryService)
@@ -19,7 +19,7 @@ class AdminUserController extends AbstractController
         $this->categoryService = $categoryService;
     }
 
-    #[Route('/', name: 'list')]
+    #[Route('/user', name: 'list')]
     public function index(UserRepository $userRepository): Response
     {
         $categories = $this->categoryService->getAllCategories();
