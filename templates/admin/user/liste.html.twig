@@ -3,7 +3,8 @@
 {% block title %}Toiles et Papiers{% endblock %}
 
 {% block body %}
-    <div class="te-admin-grid">
+    {{ dump() }}
+   <div class="te-admin-grid">
     <aside class="te-admin-aside te-height-cat">
         {{ include('admin/includes/_aside.html.twig') }}
     </aside>
@@ -18,6 +19,7 @@
                         <th  class="te-col-desc">Roles</th>
                         <th  class="te-col-desc">Email</th>
                         <th  class="te-col-desc">Nbre de commentaire</th>
+                        <th  class="te-col-desc text-center">Modifier</th>
                         <th  class="te-col-desc text-center">Supprimer</th>
                     </tr>
                     </thead>
@@ -25,9 +27,10 @@
                     {% for user in users %}
                        <tr>
                             <td class="te-col-name">{{ user.fullname }}</td>
-                            <td class="te-col-desc">{{ user.roles.0 }}</td>
+                            <td class="te-col-desc">{{ user.roles|join(', ') }}</td>
                             <td class="te-col-desc">{{ user.email }}</td>
                            <td class="te-col-desc">{{ user.comments| length }}</td>
+                           <td class="te-col-modify"><a href="{{ path('admin_user_edit',{ id: user.id}) }}"><i class="fa-regular fa-pen-to-square" style="color: #1b1a21;"></i></a></td>
                            <td class="te-col-modify">{{ include('admin/user/_delete.html.twig') }}</td>
                         </tr>
                     {% endfor %}
