@@ -5,6 +5,7 @@ namespace App\Controller\admin;
 use AllowDynamicProperties;
 use App\Entity\Paint;
 use App\Entity\User;
+use App\Form\UserType;
 use App\Repository\UserRepository;
 use App\service\CategoryService;
 use Doctrine\ORM\EntityManagerInterface;
@@ -33,7 +34,29 @@ class AdminUserController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'delete', methods: ['GET','POST'])]
+    #[Route('/user/{id}/edit', name: 'edit', methods: ['GET', 'POST'])]
+    public function edit(Request $request,UserRepository $userRepository, User $user ): Response
+    {
+        $categories = $this->categoryService->getAllCategories();
+
+        $userForm = $this->createForm(UserType::class, $user);
+        $userForm->handleRequest($request);
+
+        if ($userForm->isSubmitted() && $userForm->isValid()) {
+
+            $userRepository->save($user, true);
+
+
+            return $this->redirectToRoute('admin_user_list', [], Response::HTTP_SEE_OTHER);
+        }
+
+        return $this->renderForm('admin/user/edit.html.twig', [
+            'user'=> $user,
+            'userForm' => $userForm,
+            'categories' => $categories,
+        ]);
+    }
+    #[Route('/user/{id}', name: 'delete', methods: ['GET','POST'])]
     public function delete(
         Request $request,
         User $user,
