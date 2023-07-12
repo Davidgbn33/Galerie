@@ -60,7 +60,7 @@ class AdminPaintController extends AbstractController
             'paintForm' => $paintForm->createView(),
         ]);
     }
-    #[Route('/{id}/edit', name: 'edit', methods: ['GET', 'POST'])]
+    #[Route('/{id}/edit', name: '_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request,PaintRepository $paintRepository, Paint $paint ): Response
     {
         $categories = $this->categoryService->getAllCategories();
@@ -87,7 +87,7 @@ class AdminPaintController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'delete', methods: ['GET','POST'])]
+    #[Route('/{id}', name: '_delete', methods: ['GET','POST'])]
     public function delete(
         Request $request,
         Paint $paint,

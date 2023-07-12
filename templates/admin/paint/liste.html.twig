@@ -32,7 +32,7 @@
                             <td class="te-col-taille">{{ paint.taille }}</td>
                             <td class="te-col-tableau">{{ paint.paintImage }}</td>
                             <td class="te-col-inspi">{{ paint.inspiration }}</td>
-                            <td class="te-col-modify"><a href="{{ path('adminedit',{ id: paint.id}) }}"><i class="fa-regular fa-pen-to-square" style="color: #1b1a21;"></i></a></td>
+                            <td class="te-col-modify"><a href="{{ path('admin_edit',{ id: paint.id}) }}"><i class="fa-regular fa-pen-to-square" style="color: #1b1a21;"></i></a></td>
                             <td class="te-col-modify">{{ include('admin/paint/_delete.html.twig') }}</td>
                             <td class="te-col-inspi"><img class="te-admin-show-img" src="{{ asset('uploads/images/paint/') }}{{ paint.paintImage }}"
                                                           alt="{{ paint.paintImage }}"</td>
