@@ -23,7 +23,6 @@
 text-decoration: none;
   color: black;
   margin-bottom:2rem;
-  font-size : 1.5rem;
 }
 
 .te-col-name {
@@ -51,4 +50,16 @@ text-decoration: none;
 
 .te-admin-show-img{
   width: 50px;
+}
+
+.accordion-button:focus{
+  border-color: black;
+  box-shadow: none;
+}
+.accordion-button:not(.collapsed){
+  background-color: white;
+}
+
+tr{
+  vertical-align: text-top;
 }
