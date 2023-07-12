@@ -3,7 +3,6 @@
 {% block title %}Toiles et Papiers{% endblock %}
 
 {% block body %}
-    {{ dump() }}
    <div class="te-admin-grid">
     <aside class="te-admin-aside te-height-cat">
         {{ include('admin/includes/_aside.html.twig') }}
@@ -30,7 +29,7 @@
                             <td class="te-col-desc">{{ user.roles|join(', ') }}</td>
                             <td class="te-col-desc">{{ user.email }}</td>
                            <td class="te-col-desc">{{ user.comments| length }}</td>
-                           <td class="te-col-modify"><a href="{{ path('admin_user_edit',{ id: user.id}) }}"><i class="fa-regular fa-pen-to-square" style="color: #1b1a21;"></i></a></td>
+                           <td class="te-col-modify"><a href="{{ path('admin_user_edit',{ id: user.id}) }}"><i class="fa-regular fa-pen-to-square " style="color: #1b1a21;"></i></a></td>
                            <td class="te-col-modify">{{ include('admin/user/_delete.html.twig') }}</td>
                         </tr>
                     {% endfor %}
