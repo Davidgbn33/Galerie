@@ -25,7 +25,7 @@
                     </tr>
                     </thead>
                     <tbody>
-                    {% for paint in paints %}
+                    {% for paint in pagination %}
                         <tr>
                             <td class="te-col-name">{{ paint.paintName }}</td>
                             <td class="te-col-desc">{{ paint.description }}</td>
@@ -38,6 +38,13 @@
                                                           alt="{{ paint.paintImage }}"</td>
                         </tr>
                     {% endfor %}
+                    <div class="container my-3">
+                        <div class="row">
+                            <div class="d-flex justify-content-center align-items-center">
+                                {{ knp_pagination_render(pagination) }}
+                            </div>
+                        </div>
+                    </div>
                     </tbody>
                 </table>
             </div>

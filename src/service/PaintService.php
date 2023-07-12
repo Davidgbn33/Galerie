@@ -29,5 +29,14 @@ class PaintService
 
        return $this->paginator->paginate($paintsQuery, $page, $limit);
     }
+    public function getPaginatedPaintsAdmin(?Category $category = null): object
+    {
+        $request = $this->requestStack->getMainRequest();
+        $page = $request->query->getint('page', 1);
+        $limit = 20;
 
+        $paintsQuery = $this->paintRepository->findForPagination($category);
+
+        return $this->paginator->paginate($paintsQuery, $page, $limit);
+    }
 }
