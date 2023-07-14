@@ -23,7 +23,6 @@ class PaintType extends AbstractType
             ->add('description', TextType::class,[
                 'required'      => false,
             ])
-
             ->add('paintImageFile', FileType::class,[
                 'required'=> false
             ])
@@ -33,7 +32,9 @@ class PaintType extends AbstractType
             ->add('inspirationFile', FileType::class, [
                 'required'=> false
             ])
-            ->add('taille',TextType::class)
+            ->add('taille',TextType::class, [
+                'required'=> false
+            ])
             ->add('category', EntityType::class, [
                 'class' => Category::class,
                 'choice_label' => 'categoryName',
