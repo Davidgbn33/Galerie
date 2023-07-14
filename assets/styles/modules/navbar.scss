@@ -121,7 +121,7 @@
     grid:
     "title" 30px
     "content" 1fr
-    / 100vw;
+    / auto;
     justify-content: center;
     text-align: center;
   }
@@ -134,5 +134,9 @@
   .te-navbar-icon{
     font-size: 1.2rem;
     margin-bottom: 7px;
+  }
+
+  .navbar-brand{
+  --bs-navbar-brand-margin-end: 0;
   }
 }

@@ -1,6 +1,6 @@
-.te-grid{
-    display: grid;
-    grid:
+.te-grid {
+  display: grid;
+  grid:
   "aside descriptif" 1fr
  "comment comment" 200px
     / 1fr 1fr;
@@ -10,11 +10,13 @@
 aside {
   grid-area: aside;
 }
+
 main {
   grid-area: descriptif;
 }
+
 .te-grid-comment {
-    grid-area: comment;
+  grid-area: comment;
 }
 
 .te-show-img {
@@ -23,20 +25,40 @@ main {
   cursor: pointer;
 }
 
-.te-font-section{
-    font-family: $te-fontFamily-Title;
+.te-font-section {
+  font-family: $te-fontFamily-Title;
 }
+
 .te-p {
   text-indent: 20px;
 }
 
-.te-img-inspi{
+.te-img-inspi {
   width: 250px;
 }
-.te-border-cat{
-    border: 1px solid black;
-    border-radius: 20px;
-    padding: 3px 4px;
-    margin: -3px;
+
+.te-border-cat {
+  border: 1px solid black;
+  border-radius: 20px;
+  padding: 3px 4px;
+  margin: -3px;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 468px) {
+
+  .te-grid {
+    display: grid;
+    grid:
+         "aside" 1fr
+         "descriptif" 1fr
+         "comment" 200px
+           / 1fr;
+    height: 100vh;
+  }
+  .te-show-img {
+    width: 300px;
+    margin: 1rem;
     cursor: pointer;
+  }
 }
