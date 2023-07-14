@@ -8,28 +8,28 @@
     {% endfor %}
     <div class="container d-flex justify-content-center">
 
-        <div class="d-flex flex-column align-items-center te-form te-shadow p-5 te-form-m w-75">
+        <div class="d-flex flex-column justify-content-center align-items-center te-form te-shadow te-form-m w-75">
             <h1 class="h3 mb-3 font-weight-normal text-center">INSCRIPTION</h1>
 
             {{ form_errors(registrationForm) }}
 
             <div class="w-75">
                 {{ form_start(registrationForm) }}
-                <label for="inputFullName">Fullname</label>
+                <label for="inputFullName">Nom Prénom</label>
                 <input
                         name="{{ field_name(registrationForm.fullname) }}"
                         id="inputFullName"
-                        type="text" class="form-control" placeholder="Nom">
+                        type="text" class="form-control">
                 <label for="inputEmail">Email</label>
                 <input
                         name="{{ field_name(registrationForm.email) }}"
                         id="inputEmail"
-                        type="text" class="form-control" placeholder="Email">
-                <label for="password">Password</label>
+                        type="text" class="form-control">
+                <label for="password">Mot de Passe</label>
                 <input
                         name="{{ field_name(registrationForm.plainPassword) }}"
                         id="password"
-                        type="text" class="form-control" placeholder="Password">
+                        type="text" class="form-control" >
                 {{ form_row(registrationForm.agreeTerms) }}
 
 
