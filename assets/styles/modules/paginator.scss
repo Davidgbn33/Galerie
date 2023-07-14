@@ -7,3 +7,7 @@
 .page-link.active, .active > .page-link{
   background-color: #E9E5E5;
 }
+
+.pagination{
+  --bs-pagination-padding-x: 0.5rem;
+}
