@@ -1,16 +1,18 @@
-<nav class="tp-bg navbar navbar-expand-lg bg-body-tertiary ">
+<nav class="tp-bg navbar navbar-expand bg-body-tertiary ">
 
-    <div class="container-fluid">
-        <a class="navbar-brand" href="/"><h1 class="te-font-title">Toiles et Papiers</h1></a>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <div class="te-container te-grid-tel">
+        <a class="navbar-brand te-grid-title" href="/">
+            <h1 class="te-font-title">Toiles et Papiers</h1>
+        </a>
+        <div class="collapse navbar-collapse te-grid-content" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 {% if is_granted('ROLE_ADMIN') %}
                 <li class="nav-item m-auto">
-                <a class="te-a te-font-dropdown text-decoration-none me-5" href="{{ path('admin_list') }}">ADMIN</a>
+                <a class="te-a te-font-dropdown text-decoration-none me-3" href="{{ path('admin_list') }}">ADMIN</a>
                 </li>
                 {% endif %}
             <li class="nav-item dropdown te-a">
-                <a class="nav-link dropdown-toggle me-5 te-font-dropdown te-a" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <a class="nav-link dropdown-toggle te-font-dropdown te-a" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     CATEGORIES
                 </a>
                 <ul class="dropdown-menu">
@@ -23,9 +25,9 @@
                 </ul>
             </li>
             </ul>
-            <a href="/login">  <i class="fa-regular fa-user me-3" style="color: #f5f5dd;"></i></a>
+            <a href="/login">  <i class="fa-regular fa-user me-3 te-navbar-icon" style="color: #f5f5dd;"></i></a>
             {% if app.user %}
-            <a href="/logout"> <i class="fa-solid fa-right-from-bracket me-3" style="color: #f5f5dd;"></i></a>
+            <a href="/logout"> <i class="fa-solid fa-right-from-bracket me-3 te-navbar-icon" style="color: #f5f5dd;"></i></a>
             {% endif %}
         </div>
     </div>
