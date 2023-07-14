@@ -11,9 +11,4 @@ import '../styles/app.scss';
 import './comment.js';
 
 
-// pour afficher le Flash Message
-var toastLiveExample = document.getElementById('liveToast')
 
-if (toastLiveExample) {
-    toastLiveExample.classList.add('show');
-}
