@@ -5,8 +5,10 @@ namespace App\Form;
 use App\Entity\Category;
 use App\Entity\Paint;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Component\DomCrawler\Field\TextareaFormField;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -20,13 +22,13 @@ class PaintType extends AbstractType
             ->add('paintName', TextType::class,[
                 'required'=> false
             ])
-            ->add('description', TextType::class,[
+            ->add('description', TextareaType::class,[
                 'required'      => false,
             ])
             ->add('paintImageFile', FileType::class,[
                 'required'=> false
             ])
-            ->add('inspiration', TextType::class, [
+            ->add('inspiration', TextareaType::class, [
                 'required' => false,
             ])
             ->add('inspirationFile', FileType::class, [
