@@ -5,41 +5,42 @@
 {% block body %}
     <div class="te-grid">
         <aside class="d-flex justify-content-center align-items-center">
-            <img class="te-show-img" src="{{ asset('uploads/images/paint/') }}{{ paint.paintImage }}"
+            <img class="te-show-img m-3" src="{{ asset('uploads/images/paint/') }}{{ paint.paintImage }}"
                  alt="{{ paint.paintImage }}" onclick="toggleFullScreen(this)">
         </aside>
 
-        <main class="d-flex flex-column">
+        <main class="d-flex flex-column justify-content-center align-items-center">
+            <div class="te-show-phone">
             {# Partie titre #}
-            <h1 class="text-center mt-3 fs-1">{{ paint.paintName }}</h1>
+            <h1 class="text-center mt-md-3 fs-1">{{ paint.paintName }}</h1>
             <h2 class="text-center my-3 fs-4 mb-5">{{ paint.taille }}</h2>
-
-            <div class="d-flex">
-                <p class="mb-1 me-1">Catégorie :</p><a class="dropdown-item"
-                                                       href="{{ path('show_cat',{ id: paint.category.id}) }}"><span
-                            class="te-border-cat"> {{ paint.category }}</span></a>
-            </div>
-            <h3 class="te-font-section mt-0 mb-0">Histoire : </h3>
-            <hr class="w-75 mt-0">
-            <p class="me-5 w-75 te-p">{{ paint.description }}</p>
-
-            {% if paint.inspiration != "" %}
-                <h3 class="te-font-section mt-5 mb-0">Inspiration :</h3>
-                <hr class="w-75 mt-0">
-                <div class="d-flex ">
-                    <p class=" w-50 me-3 te-p">{{ paint.inspiration }}</p>
-                    <div class="d-flex">
-                        {% if paint.ImageInspiration != "" %}
-                            <img class="te-img-inspi me-1"
-                                 src="{{ asset('uploads/images/inspiration/') }}{{ paint.ImageInspiration }}" alt="">
-                        {% endif %}
-                    </div>
+                <div class="d-flex">
+                    <p class="mb-1 me-1">Catégorie :</p><a class="dropdown-item"
+                                                           href="{{ path('show_cat',{ id: paint.category.id}) }}"><span
+                                class="te-border-cat"> {{ paint.category }}</span></a>
                 </div>
-            {% endif %}
+                <h3 class="te-font-section mt-0 mb-0">Histoire : </h3>
+                <hr class="w-md-75 mt-0 me-md-5">
+                <p class="me-md-5 w-md-75 te-p">{{ paint.description }}</p>
+
+                {% if paint.inspiration != "" %}
+                    <h3 class="te-font-section mt-5 mb-0">Inspiration :</h3>
+                    <hr class="w-md-75 mt-0">
+                    <div class="d-md-flex te-grid-inspi">
+                        <p class=" w-md-50 me-3 te-p te-grid-textInspi">{{ paint.inspiration }}</p>
+                        <div class="d-flex justify-content-center">
+                            {% if paint.ImageInspiration != "" %}
+                                <img class="te-img-inspi me-1 te-grid-imageInspi"
+                                     src="{{ asset('uploads/images/inspiration/') }}{{ paint.ImageInspiration }}"
+                                     alt="">
+                            {% endif %}
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
         </main>
 
-        {#{% include "./includes/_formComment.html.twig" %}#}
-
+        {# {% include "./includes/_formComment.html.twig" %} #}
     </div>
     <script>
         function toggleFullScreen(element) {
