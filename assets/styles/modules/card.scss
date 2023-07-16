@@ -8,11 +8,11 @@
 .te-min-h{
   min-height: 635px;
 }
-.card{
+.card-show-img{
   transition: transform .1s;
   border-radius: 0;
 }
-.card:hover{
+.card-show-img:hover{
   -ms-transform: scale(1.0); /* IE 9 */
   -webkit-transform: scale(1.0); /* Safari 3-8 */
   transform: scale(1.1);
@@ -23,8 +23,4 @@
 }
 .card-img-top, .card-img{
   border-radius: 0;
-}
-.card-img-top {
-  opacity: 70%;
-  background-color: black;
 }
