@@ -12,7 +12,10 @@
 @import "modules/form.scss";
 @import "modules/footer.scss";
 
-
 body {
     background-color: $te-bg-color;
+    margin: 0;
+    min-height: 100vh;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
 }
