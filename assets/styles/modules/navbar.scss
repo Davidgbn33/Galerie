@@ -108,6 +108,10 @@
 }
 
 @media screen and (max-width: 468px) {
+
+  .tp-bg{
+    height: 150px
+  }
   .te-font-title {
     font-size: 2rem;
   }
@@ -133,7 +137,6 @@
   }
   .te-navbar-icon{
     font-size: 1.2rem;
-    margin-bottom: 7px;
   }
 
   .navbar-brand{

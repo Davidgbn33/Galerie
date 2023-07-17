@@ -2,7 +2,7 @@
   display: grid;
   grid:
   "aside descriptif" 2fr
- "comment comment" 1fr
+ "comment comment" auto
     / 1fr 1fr;
 
 }
@@ -52,7 +52,7 @@ main {
     grid:
          "aside" 1fr
          "descriptif" 1fr
-         "comment" 1fr
+         "comment" auto
            / 1fr;
   }
   .te-show-img {
@@ -65,8 +65,8 @@ main {
 
   .te-grid-inspi{
    display: grid;
-    grid: "imageInspi" 200px
-          "textInspi" 1fr
+    grid: "textInspi" 1fr
+          "ImageInspi" auto
             / 1fr;
   }
   .te-grid-imageInspi{
