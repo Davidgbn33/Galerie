@@ -18,7 +18,11 @@ class CommentController extends AbstractController
     #[Route('/show/ajax/comments', name: 'comment_add', methods: 'POST')]
     public function index(Request $request, PaintRepository $paintRepository, UserRepository $userRepository, EntityManagerInterface $em, CommentRepository $commentRepository): Response
     {
-
+        if (!$this->getUser()) {
+            return $this->json([
+                'code' => 'AUTHENTICATION_REQUIRED',
+            ], Response::HTTP_UNAUTHORIZED);
+        }
 
         $commentData = $request->request->all('comment');
 
@@ -36,6 +40,7 @@ class CommentController extends AbstractController
             ], Response::HTTP_BAD_REQUEST);
         }
         $user = $this->getUser();
+
         $comment = new Comment($paint);
         $comment->setComment($commentData['comment']);
         $comment->setUser($user);

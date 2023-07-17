@@ -2,11 +2,14 @@
     <div class="container w-md-75 te-w-90 p-0 m-0">
         <h3>
             <span class="te-fs-2" id="comment-count">{{ paint.comment |length }}</span> commentaire(s)
+        <p class="te-fs-12">(si vous souhaitez laiiser un commentaire, vous devez être connecté)</p>
         </h3>
+        {% if app.user %}
         <hr class="mt-0">
         <div class="comment-area">
             {{ form(commentForm,{ 'attr':{ 'class':'comment-form' }}) }}
         </div>
+        {% endif %}
         <div class="my-3 comment-list">
             {% for  comment in paint.comment %}
                 {% include "comment/show.html.twig" with [comment] %}

@@ -31,7 +31,6 @@ class Paint
     private ?string $description = null;
 
     #[ORM\Column(length: 255, nullable: true)]
-    #[Assert\NotBlank(message: 'Veuillez mettre une image')]
     private ?string $paintImage = null;
 
     private ?string $paintImageFile = null;
