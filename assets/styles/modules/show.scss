@@ -1,10 +1,10 @@
 .te-grid {
   display: grid;
   grid:
-  "aside descriptif" 1fr
- "comment comment" 200px
+  "aside descriptif" 2fr
+ "comment comment" 1fr
     / 1fr 1fr;
-  height: 100vh;
+
 }
 
 aside {

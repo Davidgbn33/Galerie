@@ -3,51 +3,56 @@
 {% block title %}Toiles et Papiers{% endblock %}
 
 {% block body %}
-    <div class="te-admin-grid">
-    <aside class="te-admin-aside">
-        {{ include('admin/includes/_aside.html.twig') }}
-    </aside>
-    <main class="te-admin-main d-flex justify-content-center flex-column">
-        <h1 class="text-center fs-2 mt-3">Liste des oeuvres</h1>
-        <div class="container mt-3">
-            <div class="">
-                <table class="table">
-                    <thead>
-                    <tr>
-                        <th  class="te-col-name">Nom du tableau</th>
-                        <th  class="te-col-desc">description</th>
-                        <th  class="te-col-taille">taille</th>
-                        <th  class="te-col-tableau">Tableau</th>
-                        <th  class="te-col-inspi">Inspiration</th>
-                        <th  class="te-col-taille">image</th>
-                        <th  class="te-col-taille">Modifier</th>
-                        <th  class="te-col-taille">Supprimer</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    {% for paint in pagination %}
-                        <tr>
-                            <td class="te-col-name">{{ paint.paintName }}</td>
-                            <td class="te-col-desc">{{ paint.description }}</td>
-                            <td class="te-col-taille">{{ paint.taille }}</td>
-                            <td class="te-col-tableau">{{ paint.paintImage }}</td>
-                            <td class="te-col-inspi">{{ paint.inspiration }}</td>
-                            <td class="te-col-inspi"><img class="te-admin-show-img" src="{{ asset('uploads/images/paint/') }}{{ paint.paintImage }}"
-                                                          alt="{{ paint.paintImage }}"></td>
-                            <td class="te-col-modify"><a href="{{ path('admin_edit',{ id: paint.id}) }}"><i class="fa-regular fa-pen-to-square" style="color: #1b1a21;"></i></a></td>
-                            <td class="te-col-modify">{{ include('admin/paint/_delete.html.twig') }}</td>
-                        </tr>
-                    {% endfor %}
-                    <div class="container my-3">
-                        <div class="row">
-                            <div class="d-flex justify-content-center align-items-center">
-                                {{ knp_pagination_render(pagination) }}
+
+        <div class="te-admin-grid">
+            <aside class="te-admin-aside">
+                {{ include('admin/includes/_aside.html.twig') }}
+            </aside>
+            <main class="te-admin-main d-flex justify-content-center flex-column">
+                <h1 class="text-center fs-2 mt-3">Liste des oeuvres</h1>
+                <div class="container mt-3">
+                    <div class="">
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th class="te-col-name">Nom du tableau</th>
+                                <th class="te-col-desc">description</th>
+                                <th class="te-col-taille">taille</th>
+                                <th class="te-col-tableau">Tableau</th>
+                                <th class="te-col-inspi">Inspiration</th>
+                                <th class="te-col-taille">image</th>
+                                <th class="te-col-taille">Modifier</th>
+                                <th class="te-col-taille">Supprimer</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for paint in pagination %}
+                                <tr>
+                                    <td class="te-col-name">{{ paint.paintName }}</td>
+                                    <td class="te-col-desc">{{ paint.description }}</td>
+                                    <td class="te-col-taille">{{ paint.taille }}</td>
+                                    <td class="te-col-tableau">{{ paint.paintImage }}</td>
+                                    <td class="te-col-inspi">{{ paint.inspiration }}</td>
+                                    <td class="te-col-inspi"><img class="te-admin-show-img"
+                                                                  src="{{ asset('uploads/images/paint/') }}{{ paint.paintImage }}"
+                                                                  alt="{{ paint.paintImage }}"></td>
+                                    <td class="te-col-modify"><a href="{{ path('admin_edit',{ id: paint.id}) }}"><i
+                                                    class="fa-regular fa-pen-to-square" style="color: #1b1a21;"></i></a>
+                                    </td>
+                                    <td class="te-col-modify">{{ include('admin/paint/_delete.html.twig') }}</td>
+                                </tr>
+                            {% endfor %}
+                            <div class="container my-3">
+                                <div class="row">
+                                    <div class="d-flex justify-content-center align-items-center">
+                                        {{ knp_pagination_render(pagination) }}
+                                    </div>
+                                </div>
                             </div>
-                        </div>
+                            </tbody>
+                        </table>
                     </div>
-                    </tbody>
-                </table>
-            </div>
+                </div>
+            </main>
         </div>
-    </main>
 {% endblock %}

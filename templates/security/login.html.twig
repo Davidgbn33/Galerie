@@ -12,6 +12,7 @@
             You are logged in as {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Logout</a>
         </div>
     {% endif %}
+    <section class="te-vh d-flex align-items-center">
     <div class="container">
         <form class="d-flex justify-content-center te-shadow w-75 p-5 te-form-m" method="post">
             <div class="d-flex justify-content-center flex-column te-form">
@@ -50,4 +51,5 @@
 
         </div>
     </div>
+    </section>
 {% endblock %}

@@ -3,39 +3,42 @@
 {% block title %}Toiles et Papiers{% endblock %}
 
 {% block body %}
-   <div class="te-admin-grid">
-    <aside class="te-admin-aside te-height-cat">
-        {{ include('admin/includes/_aside.html.twig') }}
-    </aside>
-   <main class="te-admin-main d-flex justify-content-center flex-column">
-        <h1 class="text-center fs-2 mt-3">Liste des utilisateurs</h1>
-        <div class="container mt-3">
-            <div class="">
-                <table class="table">
-                    <thead>
-                    <tr>
-                        <th  class="te-col-name">Fullname</th>
-                        <th  class="te-col-desc">Roles</th>
-                        <th  class="te-col-desc">Email</th>
-                        <th  class="te-col-desc">Nbre de commentaire(s)</th>
-                        <th  class="te-col-desc text-center">Modifier</th>
-                        <th  class="te-col-desc text-center">Supprimer</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    {% for user in users %}
-                       <tr>
-                            <td class="te-col-name">{{ user.fullname }}</td>
-                            <td class="te-col-desc">{{ user.roles|join(', ') }}</td>
-                            <td class="te-col-desc">{{ user.email }}</td>
-                           <td class="te-col-desc">{{ user.comments| length }}</td>
-                           <td class="te-col-modify"><a href="{{ path('admin_user_edit',{ id: user.id}) }}"><i class="fa-regular fa-pen-to-square " style="color: #1b1a21;"></i></a></td>
-                           <td class="te-col-modify">{{ include('admin/user/_delete.html.twig') }}</td>
+    <div class="te-admin-grid">
+        <aside class="te-admin-aside te-height-cat">
+            {{ include('admin/includes/_aside.html.twig') }}
+        </aside>
+        <main class="te-admin-main d-flex justify-content-center flex-column">
+            <h1 class="text-center fs-2 mt-3">Liste des utilisateurs</h1>
+            <div class="container mt-3">
+                <div class="">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th class="te-col-name">Fullname</th>
+                            <th class="te-col-desc">Roles</th>
+                            <th class="te-col-desc">Email</th>
+                            <th class="te-col-desc">Nbre de commentaire(s)</th>
+                            <th class="te-col-desc text-center">Modifier</th>
+                            <th class="te-col-desc text-center">Supprimer</th>
                         </tr>
-                    {% endfor %}
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody>
+                        {% for user in users %}
+                            <tr>
+                                <td class="te-col-name">{{ user.fullname }}</td>
+                                <td class="te-col-desc">{{ user.roles|join(', ') }}</td>
+                                <td class="te-col-desc">{{ user.email }}</td>
+                                <td class="te-col-desc">{{ user.comments| length }}</td>
+                                <td class="te-col-modify"><a href="{{ path('admin_user_edit',{ id: user.id}) }}"><i
+                                                class="fa-regular fa-pen-to-square " style="color: #1b1a21;"></i></a>
+                                </td>
+                                <td class="te-col-modify">{{ include('admin/user/_delete.html.twig') }}</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
             </div>
-        </div>
-    </main>
+        </main>
+    </div>
 {% endblock %}
