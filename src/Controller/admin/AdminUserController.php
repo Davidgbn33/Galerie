@@ -61,11 +61,9 @@ class AdminUserController extends AbstractController
         Request $request,
         User $user,
         UserRepository $userRepository,
-        EntityManagerInterface $manager
     ): Response
     {
         if ($this->isCsrfTokenValid('delete'.$user->getId(), $request->request->get('_token'))) {
-
             $userRepository->remove($user, true);
         }
 
