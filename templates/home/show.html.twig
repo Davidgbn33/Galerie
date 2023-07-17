@@ -28,13 +28,13 @@
                     <hr class="w-md-75 mt-0">
                     <div class="d-md-flex te-grid-inspi">
                         <p class=" w-md-50 me-3 te-p te-grid-textInspi">{{ paint.inspiration }}</p>
-                        <div class="d-flex justify-content-center">
                             {% if paint.ImageInspiration != "" %}
+                        <div class="d-flex justify-content-center ">
                                 <img class="te-img-inspi me-1 te-grid-imageInspi"
                                      src="{{ asset('uploads/images/inspiration/') }}{{ paint.ImageInspiration }}"
                                      alt="">
-                            {% endif %}
                         </div>
+                            {% endif %}
                     </div>
                 {% endif %}
             </div>
