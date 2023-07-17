@@ -20,21 +20,27 @@ class PaintType extends AbstractType
     {
         $builder
             ->add('paintName', TextType::class,[
+                'label'=> 'Nom de la peinture',
                 'required'=> false
             ])
             ->add('description', TextareaType::class,[
+                'label'=> 'Description',
                 'required'      => false,
             ])
             ->add('paintImageFile', FileType::class,[
+                'label'=> 'Image de la peinture',
                 'required'=> false
             ])
             ->add('inspiration', TextareaType::class, [
+                'label'=> 'Inspiration',
                 'required' => false,
             ])
             ->add('inspirationFile', FileType::class, [
+                'label'=> 'Image d\'inspiration',
                 'required'=> false
             ])
             ->add('taille',TextType::class, [
+                'label'=> 'Taille',
                 'required'=> false
             ])
             ->add('category', EntityType::class, [

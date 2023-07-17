@@ -36,7 +36,7 @@ class PaintFixtures extends Fixture
             'paint_name' => 'Jonques',
             'description' => 'exercice de transparence des couleurs sur le papier',
             'paint_image' => 'aquarelle2.jpg',
-            'inspiration' => 'les modèles d\'estampe japonaise s\'y prête bien.',
+            'inspiration' => 'les modèles d\'estampe japonaise s\'y prêtent bien.',
             'image_inspiration' => '',
             'taille' => '36 x 26',
             'category' => 'Aquarelle',
