@@ -3,35 +3,38 @@
 {% block title %}Toiles et Papiers{% endblock %}
 
 {% block body %}
-   <div class="te-admin-grid">
-    <aside class="te-admin-aside te-height-cat">
-        {{ include('admin/includes/_aside.html.twig') }}
-    </aside>
-   <main class="te-admin-main d-flex justify-content-center flex-column">
-        <h1 class="text-center fs-2 mt-3">Liste des utilisateurs</h1>
-        <div class="container mt-3">
-            <div class="">
-                <table class="table">
-                    <thead>
-                    <tr>
-                        <th  class="te-col-name">Comment</th>
-                        <th  class="te-col-desc">User</th>
-                        <th  class="te-col-desc">Paint</th>
-                        <th  class="te-col-desc text-center">Supprimer</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    {% for comment in comments %}
-                       <tr>
-                            <td class="te-col-name">{{ comment.comment}}</td>
-                            <td class="te-col-desc">{{ comment.user }}</td>
-                            <td class="te-col-desc">{{ comment.paint }}</td>
-                           <td class="te-col-modify">{{ include('admin/comment/_delete.html.twig') }}</td>
-                        </tr>
-                    {% endfor %}
-                    </tbody>
-                </table>
-            </div>
+
+        <div class="te-admin-grid">
+            <aside class="te-admin-aside te-height-cat">
+                {{ include('admin/includes/_aside.html.twig') }}
+            </aside>
+            <main class="te-admin-main d-flex justify-content-center flex-column">
+                <h1 class="text-center fs-2 mt-3">Liste des utilisateurs</h1>
+                <div class="container mt-3">
+                    <div class="">
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th class="te-col-name">Comment</th>
+                                <th class="te-col-desc">User</th>
+                                <th class="te-col-desc">Paint</th>
+                                <th class="te-col-desc text-center">Supprimer</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for comment in comments %}
+                                <tr>
+                                    <td class="te-col-name">{{ comment.comment }}</td>
+                                    <td class="te-col-desc">{{ comment.user }}</td>
+                                    <td class="te-col-desc">{{ comment.paint }}</td>
+                                    <td class="te-col-modify">{{ include('admin/comment/_delete.html.twig') }}</td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </main>
         </div>
-    </main>
+
 {% endblock %}

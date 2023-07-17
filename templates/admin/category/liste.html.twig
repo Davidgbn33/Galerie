@@ -3,35 +3,40 @@
 {% block title %}Toiles et Papiers{% endblock %}
 
 {% block body %}
+
     <div class="te-admin-grid">
-    <aside class="te-admin-aside te-height-cat">
-        {{ include('admin/includes/_aside.html.twig') }}
-    </aside>
-    <main class="te-admin-main d-flex justify-content-center flex-column">
-        <h1 class="text-center fs-2 mt-3">Liste des catégories</h1>
-        <div class="container mt-3">
-            <div class="">
-                <table class="table">
-                    <thead>
-                    <tr>
-                        <th  class="te-col-name">Nom de la catégorie</th>
-                        <th  class="te-col-desc">Image de la catégorie</th>
-                        <th  class="te-col-desc text-center">Modifier</th>
-                        <th  class="te-col-desc">Supprimer</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    {% for category in categories %}
+        <aside class="te-admin-aside te-height-cat">
+            {{ include('admin/includes/_aside.html.twig') }}
+        </aside>
+        <main class="te-admin-main d-flex justify-content-center flex-column">
+            <h1 class="text-center fs-2 mt-3">Liste des catégories</h1>
+            <div class="container mt-3">
+                <div class="">
+                    <table class="table">
+                        <thead>
                         <tr>
-                            <td class="te-col-name">{{ category.categoryName }}</td>
-                            <td class="te-col-desc">{{ category.categoryImage }}</td>
-                         <td class="te-col-modify"><a href="{{ path('admin_cat_edit',{ id: category.id}) }}"><i class="fa-regular fa-pen-to-square" style="color: #1b1a21;"></i></a></td>
-                            <td class="te-col-modify">{{ include('admin/category/_delete.html.twig') }}</td>
+                            <th class="te-col-name">Nom de la catégorie</th>
+                            <th class="te-col-desc">Image de la catégorie</th>
+                            <th class="te-col-desc text-center">Modifier</th>
+                            <th class="te-col-desc">Supprimer</th>
                         </tr>
-                    {% endfor %}
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody>
+                        {% for category in categories %}
+                            <tr>
+                                <td class="te-col-name">{{ category.categoryName }}</td>
+                                <td class="te-col-desc">{{ category.categoryImage }}</td>
+                                <td class="te-col-modify"><a href="{{ path('admin_cat_edit',{ id: category.id}) }}"><i
+                                                class="fa-regular fa-pen-to-square" style="color: #1b1a21;"></i></a>
+                                </td>
+                                <td class="te-col-modify">{{ include('admin/category/_delete.html.twig') }}</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
             </div>
-        </div>
-    </main>
+        </main>
+    </div>
+
 {% endblock %}
