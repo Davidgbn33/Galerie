@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\CategoryRepository;
+use Cocur\Slugify\Slugify;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -35,6 +36,8 @@ class Category
     #[ORM\OneToMany(mappedBy: 'category', targetEntity: Paint::class)]
     private Collection $paints;
 
+    #[ORM\Column(length: 255, nullable: false)]
+    private ?string $slug = null;
     public function __construct()
     {
         $this->paints = new ArrayCollection();
@@ -53,6 +56,9 @@ class Category
     public function setCategoryName(?string $categoryName): static
     {
         $this->categoryName = $categoryName;
+        $slugify = new Slugify();
+        $slug = $slugify->slugify($this->categoryName);
+        $this->setSlug($slug);
 
         return $this;
     }
@@ -102,6 +108,8 @@ class Category
 
         return $this;
     }
+
+
     /**
      * @return string|null
      */
@@ -121,5 +129,20 @@ class Category
     public function __toString(): string
     {
         return $this->categoryName;
+    }
+    /**
+     * @return string|null
+     */
+    public function getSlug(): ?string
+    {
+        return $this->slug;
+    }
+
+    /**
+     * @param string|null $slug
+     */
+    public function setSlug(?string $slug): void
+    {
+        $this->slug = $slug;
     }
 }

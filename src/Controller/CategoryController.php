@@ -18,7 +18,7 @@ class CategoryController extends AbstractController
         $this->categoryService = $categoryService;
     }
 
-#[Route('/category/show/{id}', name: 'show_cat',methods: ['GET'])]
+#[Route('/category/show/{slug}', name: 'show_cat',methods: ['GET'])]
     public function show(Category $category, PaintService $paintService): Response
     {
 

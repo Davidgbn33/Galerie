@@ -16,7 +16,7 @@
             <h2 class="text-center my-3 fs-4 mb-5">{{ paint.taille }}</h2>
                 <div class="d-flex">
                     <p class="mb-1 me-1">Retour catégorie :</p><a class="dropdown-item"
-                                                           href="{{ path('show_cat',{ id: paint.category.id}) }}"><span
+                                                           href="{{ path('show_cat',{ slug: paint.category.slug}) }}"><span
                                 class="te-border-cat"> {{ paint.category }}</span></a>
                 </div>
                 <h3 class="te-font-section mt-0 mb-0">Description : </h3>
