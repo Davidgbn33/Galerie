@@ -6,6 +6,7 @@ use App\Repository\CommentRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: CommentRepository::class)]
 class Comment
@@ -18,6 +19,10 @@ class Comment
     private ?int $id = null;
 
     #[ORM\Column(type: Types::TEXT, nullable: true)]
+    #[Assert\Regex(
+        pattern: '/^[\w\s\.,!?@#$%^&*()-=_+[\]{}|\\;:\'"<>/]+$/i',
+        message: 'Veuillez saisir un commentaire avec des caractère valide'
+    )]
     private ?string $comment = null;
 
     #[ORM\ManyToOne( inversedBy: 'comments')]
