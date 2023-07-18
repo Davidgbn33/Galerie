@@ -22,4 +22,4 @@
 - If you want to connect in Admin
 - you can use 'admin@me.fr' Password '123456'
 
--If youy want to connect you can creat a user
+- If you want to connect you can creat a user
