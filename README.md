@@ -20,6 +20,6 @@
 # Connexion
 
 - If you want to connect in Admin
-- you can use 'admin@me.fr' Password '123456'
+- you can use 'admin@me.fr' for the password check fixture
 
-- If you want to connect you can creat a user
+- If you want to connect you can create a user
