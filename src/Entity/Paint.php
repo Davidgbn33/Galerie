@@ -27,10 +27,6 @@ class Paint
 
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     #[Assert\NotBlank(message: 'Veuillez saisir une description')]
-    #[Assert\Regex(
-        pattern: '/^[\w\s\.,!?@#$%^&*()-=_+[\]{}|\\;:\'"<>/]+$/i',
-        message: 'Veuillez saisir un commentaire avec des caractère valide'
-    )]
     private ?string $description = null;
 
     #[ORM\Column(length: 255, nullable: true)]
@@ -41,10 +37,6 @@ class Paint
     private ?string $paintImageFile = null;
 
     #[ORM\Column(type: Types::TEXT, nullable: true)]
-    #[Assert\Regex(
-        pattern: '/^[\w\s\.,!?@#$%^&*()-=_+[\]{}|\\;:\'"<>/]+$/i',
-        message: 'Veuillez saisir un commentaire avec des caractère valide'
-    )]
     private ?string $inspiration = null;
 
     #[ORM\Column(length: 255, nullable: true)]

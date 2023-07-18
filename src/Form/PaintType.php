@@ -20,35 +20,31 @@ class PaintType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('paintName', TextType::class,[
-                'label'=> 'Nom de la peinture',
-                'required'=> false
+            ->add('paintName', TextType::class, [
+                'label' => 'Nom de la peinture',
+                'required' => false
             ])
-            ->add('description', TextareaType::class,[
-                'label'=> 'Description',
-                'required'      => false,
+            ->add('description', TextareaType::class, [
+                'label' => 'Description',
+                'required' => false,
             ])
-            ->add('paintImageFile', FileType::class,[
-                'label'=> 'Image de la peinture',
-                'required'=> false,
+            ->add('paintImageFile', FileType::class, [
+                'label' => 'Image de la peinture',
+                'required' => false,
                 'constraints' => [
-        new File([
-            'maxSize' => '500k',
-            'mimeTypes' => [
-                'application/jpg',
-                'application/jpeg',
-            ],
-            'mimeTypesMessage' => 'Veuillez mettre une image de type jpg ou jpeg de moins de 500ko',
-        ])
-    ]
+                    new File([
+                        'maxSize' => '1500k',
+                        'mimeTypesMessage' => 'Veuillez mettre une image de moins de 1500ko',
+                    ])
+                ]
             ])
             ->add('inspiration', TextareaType::class, [
-                'label'=> 'Inspiration',
+                'label' => 'Inspiration',
                 'required' => false,
             ])
             ->add('inspirationFile', FileType::class, [
-                'label'=> 'Image d\'inspiration',
-                'required'=> false,
+                'label' => 'Image d\'inspiration',
+                'required' => false,
                 'constraints' => [
                     new File([
                         'maxSize' => '500k',
@@ -60,16 +56,15 @@ class PaintType extends AbstractType
                     ])
                 ]
             ])
-            ->add('taille',TextType::class, [
-                'label'=> 'Taille',
-                'required'=> false
+            ->add('taille', TextType::class, [
+                'label' => 'Taille',
+                'required' => false
             ])
             ->add('category', EntityType::class, [
                 'class' => Category::class,
                 'choice_label' => 'categoryName',
-                'label'=> 'Categorie'
-            ])
-        ;
+                'label' => 'Categorie'
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void
