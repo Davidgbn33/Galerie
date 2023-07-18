@@ -15,20 +15,20 @@
                         <thead>
                         <tr>
                             <th class="te-col-name">Fullname</th>
-                            <th class="te-col-desc">Roles</th>
-                            <th class="te-col-desc">Email</th>
-                            <th class="te-col-desc">Nbre de commentaire(s)</th>
-                            <th class="te-col-desc text-center">Modifier</th>
-                            <th class="te-col-desc text-center">Supprimer</th>
+                            <th class="te-col-60">Roles</th>
+                            <th class="te-col-60">Email</th>
+                            <th class="te-col-60">Nbre de commentaire(s)</th>
+                            <th class="te-col-60 text-center">Modifier</th>
+                            <th class="te-col-60 text-center">Supprimer</th>
                         </tr>
                         </thead>
                         <tbody>
                         {% for user in users %}
                             <tr>
                                 <td class="te-col-name">{{ user.fullname }}</td>
-                                <td class="te-col-desc">{{ user.roles|join(', ') }}</td>
-                                <td class="te-col-desc">{{ user.email }}</td>
-                                <td class="te-col-desc">{{ user.comments| length }}</td>
+                                <td class="te-col-60">{{ user.roles|join(', ') }}</td>
+                                <td class="te-col-60">{{ user.email }}</td>
+                                <td class="te-col-60 text-center">{{ user.comments| length }}</td>
                                 <td class="te-col-modify"><a href="{{ path('admin_user_edit',{ id: user.id}) }}"><i
                                                 class="fa-regular fa-pen-to-square " style="color: #1b1a21;"></i></a>
                                 </td>

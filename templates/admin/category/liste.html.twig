@@ -16,16 +16,18 @@
                         <thead>
                         <tr>
                             <th class="te-col-name">Nom de la catégorie</th>
-                            <th class="te-col-desc">Image de la catégorie</th>
-                            <th class="te-col-desc text-center">Modifier</th>
-                            <th class="te-col-desc">Supprimer</th>
+                            <th class="te-col-60 text-center">Image de la catégorie</th>
+                            <th class="te-col-60 text-center">Modifier</th>
+                            <th class="te-col-60">Supprimer</th>
                         </tr>
                         </thead>
                         <tbody>
                         {% for category in categories %}
                             <tr>
                                 <td class="te-col-name">{{ category.categoryName }}</td>
-                                <td class="te-col-desc">{{ category.categoryImage }}</td>
+                                <td class="te-col-inspi text-center"><img class="te-admin-show-img"
+                                                              src="{{ asset('uploads/images/category/') }}{{ category.categoryImage }}"
+                                                              alt="{{ category.categoryImage }}"></td>
                                 <td class="te-col-modify"><a href="{{ path('admin_cat_edit',{ id: category.id}) }}"><i
                                                 class="fa-regular fa-pen-to-square" style="color: #1b1a21;"></i></a>
                                 </td>
