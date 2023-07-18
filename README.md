@@ -3,7 +3,7 @@
 # Présentation 
 
 - This is a site of a picture gallery for a painter
-- In the directory Documment you have the backlog, Figma screenshots and database modeling.
+- In the directory Document you have the backlog, Figma screenshots and database modeling.
 
 # for start the Projet :
 
