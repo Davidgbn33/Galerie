@@ -24,9 +24,12 @@ class Category
     private ?string $categoryName = null;
 
     #[ORM\Column(length: 100, nullable: true)]
-    #[Assert\NotBlank(message: 'Veuillez mettre une image')]
     private ?string $categoryImage = null;
 
+     #[Assert\Regex(
+        pattern: '/^[\w\s\.,!?@#$%^&*()-=_+[\]{}|\\;:\'"<>/]+$/i',
+        message: 'Veuillez saisir une image avec des caractère valide'
+    )]
     private ?string $categoryFile = null;
 
     #[ORM\OneToMany(mappedBy: 'category', targetEntity: Paint::class)]
