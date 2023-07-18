@@ -9,11 +9,8 @@ require('bootstrap');
 import '../styles/app.scss';
 
 import './comment.js';
+import './fullscreen.js';
+import './noClick';
 
-// noclick.js
 
-// Désactive le clic droit
-window.addEventListener('contextmenu', function (e) {
-    e.preventDefault();
-}, false);
 

@@ -6,7 +6,7 @@
     <div class="te-grid">
         <aside class="d-flex justify-content-center align-items-center">
             <img class="te-show-img m-3" src="{{ asset('uploads/images/paint/') }}{{ paint.paintImage }}"
-                 alt="{{ paint.paintImage }}" onclick="toggleFullScreen(this)">
+                 alt="{{ paint.paintImage }}" id="fullscreenButton">
         </aside>
 
         <main class="d-flex flex-column align-items-center">
@@ -42,30 +42,5 @@
 
       {% include "./includes/_formComment.html.twig" %}
     </div>
-    <script>
-        function toggleFullScreen(element) {
-            if (!document.fullscreenElement) {
-                if (element.requestFullscreen) {
-                    element.requestFullscreen();
-                } else if (element.mozRequestFullScreen) {
-                    element.mozRequestFullScreen();
-                } else if (element.webkitRequestFullscreen) {
-                    element.webkitRequestFullscreen();
-                } else if (element.msRequestFullscreen) {
-                    element.msRequestFullscreen();
-                }
-            } else {
-                if (document.exitFullscreen) {
-                    document.exitFullscreen();
-                } else if (document.mozCancelFullScreen) {
-                    document.mozCancelFullScreen();
-                } else if (document.webkitExitFullscreen) {
-                    document.webkitExitFullscreen();
-                } else if (document.msExitFullscreen) {
-                    document.msExitFullscreen();
-                }
-            }
-        }
-    </script>
 {% endblock %}
 
