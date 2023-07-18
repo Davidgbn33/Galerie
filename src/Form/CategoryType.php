@@ -8,20 +8,30 @@ use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints\File;
 
 class CategoryType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('categoryName', TextType::class,[
-                'required'=> false
+            ->add('categoryName', TextType::class, [
+                'required' => false
             ])
-            ->add('categoryFile',FileType::class, [
+            ->add('categoryFile', FileType::class, [
                 'required' => false,
-                'mapped'=> false,
-            ])
-        ;
+                'mapped' => false,
+                'constraints' => [
+                    new File([
+                        'maxSize' => '500k',
+                        'mimeTypes' => [
+                            'application/jpg',
+                            'application/jpeg',
+                        ],
+                        'mimeTypesMessage' => 'Veuillez mettre une image de type jpg ou jpeg de moins de 500ko',
+                    ])
+                ]
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void

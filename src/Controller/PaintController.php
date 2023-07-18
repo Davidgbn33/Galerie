@@ -27,8 +27,6 @@ class PaintController extends AbstractController
         $categories = $this->categoryService->getAllCategories();
         $pagination = $paintService->getPaginatedPaints();
 
-
-
         return $this->render('home/index.html.twig', [
             'pagination' => $pagination,
             'categories'=> $categories,

@@ -9,7 +9,6 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
-use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: PaintRepository::class)]
@@ -28,14 +27,24 @@ class Paint
 
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     #[Assert\NotBlank(message: 'Veuillez saisir une description')]
+    #[Assert\Regex(
+        pattern: '/^[\w\s\.,!?@#$%^&*()-=_+[\]{}|\\;:\'"<>/]+$/i',
+        message: 'Veuillez saisir un commentaire avec des caractère valide'
+    )]
     private ?string $description = null;
 
     #[ORM\Column(length: 255, nullable: true)]
+
     private ?string $paintImage = null;
 
+    #[Assert\NotBlank(message: "veuillez mettre un tableau")]
     private ?string $paintImageFile = null;
 
     #[ORM\Column(type: Types::TEXT, nullable: true)]
+    #[Assert\Regex(
+        pattern: '/^[\w\s\.,!?@#$%^&*()-=_+[\]{}|\\;:\'"<>/]+$/i',
+        message: 'Veuillez saisir un commentaire avec des caractère valide'
+    )]
     private ?string $inspiration = null;
 
     #[ORM\Column(length: 255, nullable: true)]

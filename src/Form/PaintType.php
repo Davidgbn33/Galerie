@@ -12,6 +12,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints\File;
 use Vich\UploaderBundle\Form\Type\VichFileType;
 
 class PaintType extends AbstractType
@@ -29,7 +30,17 @@ class PaintType extends AbstractType
             ])
             ->add('paintImageFile', FileType::class,[
                 'label'=> 'Image de la peinture',
-                'required'=> false
+                'required'=> false,
+                'constraints' => [
+        new File([
+            'maxSize' => '500k',
+            'mimeTypes' => [
+                'application/jpg',
+                'application/jpeg',
+            ],
+            'mimeTypesMessage' => 'Veuillez mettre une image de type jpg ou jpeg de moins de 500ko',
+        ])
+    ]
             ])
             ->add('inspiration', TextareaType::class, [
                 'label'=> 'Inspiration',
@@ -37,7 +48,17 @@ class PaintType extends AbstractType
             ])
             ->add('inspirationFile', FileType::class, [
                 'label'=> 'Image d\'inspiration',
-                'required'=> false
+                'required'=> false,
+                'constraints' => [
+                    new File([
+                        'maxSize' => '500k',
+                        'mimeTypes' => [
+                            'application/jpg',
+                            'application/jpeg',
+                        ],
+                        'mimeTypesMessage' => 'Veuillez mettre une image de type jpg ou jpeg de moins de 500ko',
+                    ])
+                ]
             ])
             ->add('taille',TextType::class, [
                 'label'=> 'Taille',
