@@ -22,7 +22,7 @@
                             {% set counter = 1 %}
                             {% for category in categories %}
                                 <li>
-                                    <a class="dropdown-item" href="{{ path('show_cat',{ id: category.id}) }}">
+                                    <a class="dropdown-item" href="{{ path('show_cat',{ slug: category.slug}) }}">
                                         <img src="{{ asset('uploads/images/category/') }}{{ category.categoryImage }}"
                                              alt="" class="te-img-cat">
                                         <span class="te-label-cat{{ counter }}">{{ category.categoryName }}</span>

@@ -229,7 +229,7 @@ class Paint
 
     public function __toString(): string
     {
-        return $this->paintName;   // TODO: Implement __toString() method.
+        return $this->paintName;
     }
 
     public function getSlug(): ?string
