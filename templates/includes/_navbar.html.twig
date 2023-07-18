@@ -5,8 +5,8 @@
             <h1 class="te-font-title">Toiles et Papiers</h1>
         </a>
         <div class="collapse navbar-collapse te-grid-content" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <div class="te-tel-position">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <div class="te-tel-position">
                     {% if is_granted('ROLE_ADMIN') %}
                         <li class="nav-item m-auto">
                             <a class="te-a te-font-dropdown text-decoration-none me-3"
@@ -14,24 +14,26 @@
                         </li>
                     {% endif %}
                     <li class="nav-item dropdown te-a">
-                        <a class="nav-link dropdown-toggle te-font-dropdown te-a" href="#" role="button"
+                        <a class="nav-link dropdown-toggle te-font-dropdown te-a ps-0" href="#" role="button"
                            data-bs-toggle="dropdown" aria-expanded="false">
                             CATEGORIES
                         </a>
                         <ul class="dropdown-menu">
                             {% set counter = 1 %}
                             {% for category in categories %}
-                                <li><a class="dropdown-item" href="{{ path('show_cat',{ id: category.id}) }}">
+                                <li>
+                                    <a class="dropdown-item" href="{{ path('show_cat',{ id: category.id}) }}">
                                         <img src="{{ asset('uploads/images/category/') }}{{ category.categoryImage }}"
-                                             alt="" class="te-img-cat"><span
-                                                class="te-label-cat{{ counter }}">{{ category.categoryName }}</span></a>
+                                             alt="" class="te-img-cat">
+                                        <span class="te-label-cat{{ counter }}">{{ category.categoryName }}</span>
+                                    </a>
                                 </li>
                                 {% set counter = counter + 1 %}
                             {% endfor %}
                         </ul>
                     </li>
-            </div>
-                </ul>
+                </div>
+            </ul>
 
 
             {% if app.user %}
@@ -43,7 +45,7 @@
 
                 <a href="/logout" class="d-flex flex-column text-center te-color me-3 text-decoration-none  ">
                     <i class="fa-solid fa-right-from-bracket te-navbar-icon" style="color: #f5f5dd;"></i>
-                    <p class="text-center m-0 te-color-log">Log out</p>
+                    <p class="text-center m-0 te-color-log">Déconnexion</p>
                 </a>
             {% else %}
                 <a href="/login" class="d-flex flex-column text-center te-color me-3 text-decoration-none   ">
