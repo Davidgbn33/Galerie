@@ -112,6 +112,12 @@
   .tp-bg{
     height: 150px
   }
+  .te-tel-position{
+    display: flex;
+    flex-direction: column;
+    margin-right: 39px;
+    margin-top: 17PX;
+  }
   .te-font-title {
     font-size: 2rem;
   }
@@ -142,10 +148,5 @@
   .navbar-brand{
   --bs-navbar-brand-margin-end: 0;
   }
-  .te-tel-position{
-    display: flex;
-    flex-direction: column;
-    margin-right: 39px;
-    margin-top: 17PX;
-  }
+
 }

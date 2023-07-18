@@ -16,11 +16,13 @@ class CategoryType extends AbstractType
     {
         $builder
             ->add('categoryName', TextType::class, [
-                'required' => false
+                'required' => false,
+                'label'=> 'Nom de la catégorie'
             ])
             ->add('categoryFile', FileType::class, [
                 'required' => false,
                 'mapped' => false,
+                'label'=>'Image de la catégorie',
                 'constraints' => [
                     new File([
                         'maxSize' => '500k',

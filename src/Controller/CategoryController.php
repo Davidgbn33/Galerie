@@ -24,9 +24,11 @@ class CategoryController extends AbstractController
 
         $categories = $this->categoryService->getAllCategories();
 
+
         return $this->render('category/show.html.twig', [
             'pagination' => $paintService->getPaginatedPaints($category),
             'categories' => $categories,
+            'category' => $category
         ]);
     }
 

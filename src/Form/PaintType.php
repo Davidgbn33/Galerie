@@ -67,6 +67,7 @@ class PaintType extends AbstractType
             ->add('category', EntityType::class, [
                 'class' => Category::class,
                 'choice_label' => 'categoryName',
+                'label'=> 'Categorie'
             ])
         ;
     }

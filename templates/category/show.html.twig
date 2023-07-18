@@ -3,6 +3,7 @@
 {% block title %}Hello CategoryController!{% endblock %}
 
 {% block body %}
+   <h3 class="text-center mt-3 fs-2">{{ category.categoryName }}</h3>
     <div class="container d-flex  flex-wrap justify-content-center mt-3">
 
         {% for paint in pagination %}
