@@ -142,4 +142,10 @@
   .navbar-brand{
   --bs-navbar-brand-margin-end: 0;
   }
+  .te-tel-position{
+    display: flex;
+    flex-direction: column;
+    margin-right: 39px;
+    margin-top: 17PX;
+  }
 }
