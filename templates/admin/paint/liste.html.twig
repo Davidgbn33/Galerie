@@ -10,13 +10,7 @@
             </aside>
             <main class="te-admin-main d-flex justify-content-center flex-column">
                 <h1 class="text-center fs-2 mt-3">Liste des oeuvres</h1>
-                <div class="container my-3">
-                    <div class="row">
-                        <div class="d-flex justify-content-center align-items-center">
-                            {{ knp_pagination_render(pagination) }}
-                        </div>
-                    </div>
-                </div>
+                {% include "./includes/_paginator.html.twig" %}
                 <div class="container mt-3">
                     <div class="">
                         <table class="table">
@@ -58,13 +52,8 @@
                         </table>
                     </div>
                 </div>
-                <div class="container my-3">
-                    <div class="row">
-                        <div class="d-flex justify-content-center align-items-center">
-                            {{ knp_pagination_render(pagination) }}
-                        </div>
-                    </div>
-                </div>
+
+                {% include "./includes/_paginator.html.twig" %}
             </main>
         </div>
 {% endblock %}

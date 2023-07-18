@@ -10,11 +10,6 @@
             {% include "./includes/_card.html.twig" %}
         {% endfor %}
     </div>
-    <div class="container my-3">
-        <div class="row">
-            <div class="d-flex justify-content-center align-items-center">
-                {{ knp_pagination_render(pagination) }}
-            </div>
-        </div>
-    </div>
+    {% include "./includes/_paginator.html.twig" %}
+
 {% endblock %}
