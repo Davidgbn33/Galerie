@@ -10,5 +10,10 @@ import '../styles/app.scss';
 
 import './comment.js';
 
+// noclick.js
 
+// Désactive le clic droit
+window.addEventListener('contextmenu', function (e) {
+    e.preventDefault();
+}, false);
 
