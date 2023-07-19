@@ -1,11 +1,11 @@
 # Galerie
 
-# Présentation 
+# Presentation 
 
 - This is a site of a picture gallery for a painter
 - In the directory Document you have the backlog, Figma screenshots and database modeling.
 
-# for start the Projet :
+# to start the Project :
 
  - create .env.local
  - composer install
@@ -17,9 +17,10 @@
  - symfony console doctrine:fixtures:load
  - symfony server:start Run yarn run dev --watch
 
-# Connexion
+# Connection
 
 - If you want to connect in Admin
-- you can use 'admin@me.fr' for the password check fixture
+  
+- you can use 'admin@me.fr' for the password check the fixture file
 
 - If you want to connect you can create a user
