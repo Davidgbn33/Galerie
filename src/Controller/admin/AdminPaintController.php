@@ -47,14 +47,16 @@ class AdminPaintController extends AbstractController
         $paintForm->handleRequest($request);
 
         if ($paintForm->isSubmitted() && $paintForm->isValid()) {
+
             $file = $paintForm["paintImageFile"]->getData();
-            $fileInspi = $paintForm["inspirationFile"]->getData();
-
             $filename = $this->uploadFile->saveFile($file);
-            $fileNameInspi = $this->uploadFile->saveFileInspi($fileInspi);
-
             $paint->setpaintImage($filename);
-            $paint->setImageInspiration($fileNameInspi);
+
+            $fileInspi = $paintForm["inspirationFile"]->getData();
+            if($fileInspi) {
+                $fileNameInspi = $this->uploadFile->saveFileInspi($fileInspi);
+                $paint->setImageInspiration($fileNameInspi);
+            }
 
             $this->em->persist($paint);
             $this->em->flush();
