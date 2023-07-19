@@ -47,12 +47,8 @@ class PaintType extends AbstractType
                 'required' => false,
                 'constraints' => [
                     new File([
-                        'maxSize' => '500k',
-                        'mimeTypes' => [
-                            'application/jpg',
-                            'application/jpeg',
-                        ],
-                        'mimeTypesMessage' => 'Veuillez mettre une image de type jpg ou jpeg de moins de 500ko',
+                        'maxSize' => '1500k',
+                        'mimeTypesMessage' => 'Veuillez mettre une image de moins de 1500ko',
                     ])
                 ]
             ])

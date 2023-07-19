@@ -30,10 +30,7 @@ class Paint
     private ?string $description = null;
 
     #[ORM\Column(length: 255, nullable: true)]
-
     private ?string $paintImage = null;
-
-    #[Assert\NotBlank(message: "veuillez mettre un tableau")]
     private ?string $paintImageFile = null;
 
     #[ORM\Column(type: Types::TEXT, nullable: true)]
