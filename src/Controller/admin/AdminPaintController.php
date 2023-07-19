@@ -48,8 +48,14 @@ class AdminPaintController extends AbstractController
 
         if ($paintForm->isSubmitted() && $paintForm->isValid()) {
             $file = $paintForm["paintImageFile"]->getData();
+            $fileInspi = $paintForm["inspirationFile"]->getData();
+
             $filename = $this->uploadFile->saveFile($file);
+            $fileNameInspi = $this->uploadFile->saveFileInspi($fileInspi);
+
             $paint->setpaintImage($filename);
+            $paint->setImageInspiration($fileNameInspi);
+
             $this->em->persist($paint);
             $this->em->flush();
 
@@ -61,7 +67,7 @@ class AdminPaintController extends AbstractController
             'paintForm' => $paintForm->createView(),
         ]);
     }
-    #[Route('/{id}/edit', name: '_edit', methods: ['GET', 'POST'])]
+    #[Route('/{slug}/edit', name: '_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request,PaintRepository $paintRepository, Paint $paint ): Response
     {
         $categories = $this->categoryService->getAllCategories();
@@ -70,11 +76,20 @@ class AdminPaintController extends AbstractController
         $paintForm->handleRequest($request);
 
         if ($paintForm->isSubmitted() && $paintForm->isValid()) {
+
             $file = $paintForm["paintImageFile"]->getData();
+            $fileInspi = $paintForm["inspirationFile"]->getData();
+
             if($file){
                 $filename = $this->uploadFile->updateFile($file, $paint->getPaintImage());
                 $paint->setPaintImage($filename);
             }
+
+            if($fileInspi){
+                $fileInspi = $this->uploadFile->updateFileInspi($fileInspi, $paint->getImageInspiration());
+                $paint->setImageInspiration($fileInspi);
+            }
+
             $paintRepository->save($paint, true);
 
 

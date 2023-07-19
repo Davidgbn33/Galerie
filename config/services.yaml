@@ -5,11 +5,11 @@
 # https://symfony.com/doc/current/best_practices.html#use-parameters-for-application-configuration
 parameters:
     image_dir: '%kernel.project_dir%/public/uploads/images/paint'
-    static_dir: '%kernel.project_dir%/public'
-    image_dir_inspi: '%kernel.project_dir%/public/uploads/images/inspiration'
-    static_dir_inspi: '%kernel.project_dir%/public'
-    image_dir_cat: '%kernel.project_dir%/public/uploads/images/category'
-    static_dir_cat: '%kernel.project_dir%/public'
+    static_dir: '%kernel.project_dir%/public/uploads/images/paint'
+    image_dir_inspi: '%kernel.project_dir%/public/uploads/images/paint'
+    static_dir_inspi: '%kernel.project_dir%/public/uploads/images/paint'
+    image_dir_cat: '%kernel.project_dir%/public/uploads/images/paint'
+    static_dir_cat: '%kernel.project_dir%/public/uploads/images/paint'
 
 services:
     # default configuration for services in *this* file

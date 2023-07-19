@@ -68,7 +68,7 @@ class AdminCategoryController extends AbstractController
         $categoryForm->handleRequest($request);
 
         if ($categoryForm->isSubmitted() && $categoryForm->isValid()) {
-            $file = $categoryForm["categoryFile"]->getData();
+            $file = $categoryForm['categoryFile']->getData();
             if($file){
                 $filename = $this->uploadFile->updateFileCat($file, $category->getCategoryImage());
                 $category->setCategoryImage($filename);

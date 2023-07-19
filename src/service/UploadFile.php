@@ -41,7 +41,7 @@ class UploadFile extends AbstractController{
     public function updateFileInspi($file, $old_file){
         $file_url = $this->saveFile($file);
         try {
-            unlink($this->getParameter('static_dir_inspi').$old_file);
+            unlink($this->getParameter('image_dir_inspi').$old_file);
         } catch (\Throwable $th) {
             //throw $th;
         }
@@ -57,7 +57,7 @@ class UploadFile extends AbstractController{
     public function updateFileCat($file, $old_file){
         $file_url = $this->saveFile($file);
         try {
-            unlink($this->getParameter('static_dir_cat').$old_file);
+            unlink($this->getParameter('image_dir_cat').$old_file);
         } catch (\Throwable $th) {
             //throw $th;
         }

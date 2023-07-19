@@ -23,7 +23,7 @@
                             {% for category in categories %}
                                 <li>
                                     <a class="dropdown-item" href="{{ path('show_cat',{ slug: category.slug}) }}">
-                                        <img src="{{ asset('uploads/images/category/') }}{{ category.categoryImage }}"
+                                        <img src="{{ asset('uploads/images/paint/') }}{{ category.categoryImage }}"
                                              alt="" class="te-img-cat">
                                         <span class="te-label-cat{{ counter }}">{{ category.categoryName }}</span>
                                     </a>
