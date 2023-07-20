@@ -27,6 +27,12 @@ class RegistrationFormType extends AbstractType
                         'pattern' => '/^[A-Za-z\s]+$/',
                         'message' => 'Le nom et le prénom doivent contenir uniquement des lettres et espaces.',
                     ]),
+                    new Length([
+                        'min' => 3,
+                        'minMessage' => 'Votre Nom dois avoir eu minimum {{ limit }} caractères',
+                        // max length allowed by Symfony for security reasons
+                        'max' => 50,
+                    ]),
                 ],
             ])
             ->add('email', EmailType::class, [
