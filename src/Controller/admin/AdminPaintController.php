@@ -54,7 +54,7 @@ class AdminPaintController extends AbstractController
 
             $fileInspi = $paintForm["inspirationFile"]->getData();
             if($fileInspi) {
-                $fileNameInspi = $this->uploadFile->saveFileInspi($fileInspi);
+                $fileNameInspi = $this->uploadFile->saveFile($fileInspi);
                 $paint->setImageInspiration($fileNameInspi);
             }
 
@@ -88,7 +88,7 @@ class AdminPaintController extends AbstractController
             }
 
             if($fileInspi){
-                $fileInspi = $this->uploadFile->updateFileInspi($fileInspi, $paint->getImageInspiration());
+                $fileInspi = $this->uploadFile->updateFile($fileInspi, $paint->getImageInspiration());
                 $paint->setImageInspiration($fileInspi);
             }
 
