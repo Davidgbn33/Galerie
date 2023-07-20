@@ -29,7 +29,7 @@ class PaintFixtures extends Fixture
             'paint_image' => 'aquarelle1.jpg',
             'inspiration' => '',
             'image_inspiration' => '',
-            'taille' => '40 x 30',
+            'taille' => '40cm x 30cm',
             'category' => 'Aquarelle',
         ],
         2 => [
@@ -38,7 +38,7 @@ class PaintFixtures extends Fixture
             'paint_image' => 'aquarelle2.jpg',
             'inspiration' => 'les modèles d\'estampe japonaise s\'y prêtent bien.',
             'image_inspiration' => '',
-            'taille' => '36 x 26',
+            'taille' => '36cm x 26cm',
             'category' => 'Aquarelle',
         ],
         3 => [
@@ -47,7 +47,7 @@ class PaintFixtures extends Fixture
             'paint_image' => 'aquarelle3.jpg',
             'inspiration' => '',
             'image_inspiration' => '',
-            'taille' => '40 x 30',
+            'taille' => '40cm x 30cm',
             'category' => 'Aquarelle',
         ],
         4 => [
@@ -57,7 +57,7 @@ class PaintFixtures extends Fixture
             'paint_image' => 'aquarelle4.jpg',
             'inspiration' => '',
             'image_inspiration' => '',
-            'taille' => '60 x 40',
+            'taille' => '60cm x 40cm',
             'category' => 'Aquarelle',
         ],
         6 => [
@@ -67,7 +67,7 @@ class PaintFixtures extends Fixture
             'paint_image' => 'aquarelle6.jpg',
             'inspiration' => 'Une photo qui m\'a aidée à peindre cette aquarelle.',
             'image_inspiration' => 'inspiAquarelle6.jpg',
-            'taille' => '56 x 38',
+            'taille' => '56cm x 38cm',
             'category' => 'Aquarelle',
         ],
         7 => [
@@ -76,7 +76,7 @@ class PaintFixtures extends Fixture
             'paint_image' => 'aquarelle7.jpg',
             'inspiration' => '',
             'image_inspiration' => '',
-            'taille' => '36 x 26',
+            'taille' => '36cm x 26cm',
             'category' => 'Aquarelle',
         ],
         8 => [
@@ -85,7 +85,7 @@ class PaintFixtures extends Fixture
             'paint_image' => 'brume.jpg',
             'inspiration' => '',
             'image_inspiration' => '',
-            'taille' => '40 x 30',
+            'taille' => '40cm x 30cm',
             'category' => 'Pastel',
         ],
         9 => [
@@ -94,7 +94,7 @@ class PaintFixtures extends Fixture
             'paint_image' => 'aquarelle9.jpg',
             'inspiration' => '',
             'image_inspiration' => '',
-            'taille' => '36 x 26',
+            'taille' => '36cm x 26cm',
             'category' => 'Aquarelle',
         ],
         10 => [
@@ -103,7 +103,7 @@ class PaintFixtures extends Fixture
             'paint_image' => 'aquarelle10.jpg',
             'inspiration' => 'L\'arbre est mis en relief sur un fond de montagne fantasmagorique. ',
             'image_inspiration' => 'inspiAquarelle10.jpg',
-            'taille' => '36 x 26',
+            'taille' => '36cm x 26cm',
             'category' => 'Aquarelle',
         ],
         11 => [
@@ -112,7 +112,7 @@ class PaintFixtures extends Fixture
             'paint_image' => 'aquarelle11.jpg',
             'inspiration' => ' Aquarelle monochrome et perspective à partir d\'une de mes photos. ',
             'image_inspiration' => 'inspiAquarelle11.jpg',
-            'taille' => '36 x 26',
+            'taille' => '36cm x 26cm',
             'category' => 'Aquarelle',
         ],
         12 => [
@@ -121,7 +121,7 @@ class PaintFixtures extends Fixture
             'paint_image' => 'aquarelle12.jpg',
             'inspiration' => '',
             'image_inspiration' => '',
-            'taille' => '36 x 13',
+            'taille' => '36cm x 13cm',
             'category' => 'Aquarelle',
         ],
         13 => [
@@ -130,7 +130,7 @@ class PaintFixtures extends Fixture
             'paint_image' => 'aquarelle13.jpg',
             'inspiration' => 'le Pays basque',
             'image_inspiration' => '',
-            'taille' => '20 x 15',
+            'taille' => '20cm x 15cm',
             'category' => 'Aquarelle',
         ],
         14 => [
@@ -139,7 +139,7 @@ class PaintFixtures extends Fixture
             'paint_image' => 'aquarelle14.jpg',
             'inspiration' => '',
             'image_inspiration' => '',
-            'taille' => '36 x 26',
+            'taille' => '36cm x 26cm',
             'category' => 'Aquarelle',
         ],
         15 => [
@@ -148,7 +148,7 @@ class PaintFixtures extends Fixture
             'paint_image' => 'aquarelle15.jpg',
             'inspiration' => 'Photo vue dans une cabane au canada.',
             'image_inspiration' => '',
-            'taille' => '36 x 26',
+            'taille' => '36cm x 26cm',
             'category' => 'Aquarelle',
         ],
         16 => [
@@ -157,7 +157,7 @@ class PaintFixtures extends Fixture
             'paint_image' => 'aquarelle16.jpg',
             'inspiration' => '',
             'image_inspiration' => '',
-            'taille' => '36 x 26',
+            'taille' => '36cm x 26cm',
             'category' => 'Aquarelle',
         ],
         17 => [
@@ -166,7 +166,7 @@ class PaintFixtures extends Fixture
             'paint_image' => 'aquarelle17.jpg',
             'inspiration' => 'Photo prise sur le grand canal à Venise.',
             'image_inspiration' => 'inspiAquarelle17.jpg',
-            'taille' => '36 x 26',
+            'taille' => '36cm x 26cm',
             'category' => 'Aquarelle',
         ],
         18 => [
@@ -175,7 +175,7 @@ class PaintFixtures extends Fixture
             'paint_image' => 'aquarelle18.jpg',
             'inspiration' => '',
             'image_inspiration' => '',
-            'taille' => '36 x 26',
+            'taille' => '36cm x 26cm',
             'category' => 'Aquarelle',
         ],
         19 => [
@@ -184,7 +184,7 @@ class PaintFixtures extends Fixture
             'paint_image' => 'pastel1.jpg',
             'inspiration' => '',
             'image_inspiration' => '',
-            'taille' => '60 x 40',
+            'taille' => '60cm x 40cm',
             'category' => 'Pastel',
         ],
         20 => [
@@ -193,7 +193,7 @@ class PaintFixtures extends Fixture
             'paint_image' => 'pastel2.jpg',
             'inspiration' => '',
             'image_inspiration' => '',
-            'taille' => '45 x 45',
+            'taille' => '45cm x 45cm',
             'category' => 'Pastel',
         ],
         21 => [
@@ -202,7 +202,7 @@ class PaintFixtures extends Fixture
             'paint_image' => 'pastel3.jpg',
             'inspiration' => '',
             'image_inspiration' => '',
-            'taille' => '41 x 37',
+            'taille' => '41cm x 37cm',
             'category' => 'Pastel',
         ],
         22 => [
@@ -211,7 +211,7 @@ class PaintFixtures extends Fixture
             'paint_image' => 'pastel4.jpg',
             'inspiration' => '',
             'image_inspiration' => '',
-            'taille' => '50 x 70',
+            'taille' => '50cm x 70cm',
             'category' => 'Pastel',
         ],
         24 => [
@@ -220,7 +220,7 @@ class PaintFixtures extends Fixture
             'paint_image' => 'peinture2.jpg',
             'inspiration' => 'Ma ville natale a toujours été une source d\'inspiration. ',
             'image_inspiration' => '',
-            'taille' => '50 x 15',
+            'taille' => '50cm x 15cm',
             'category' => 'Peinture',
         ],
         25 => [
@@ -229,7 +229,7 @@ class PaintFixtures extends Fixture
             'paint_image' => 'peinture3.jpg',
             'inspiration' => '',
             'image_inspiration' => '',
-            'taille' => '70 x 50',
+            'taille' => '70cm x 50cm',
             'category' => 'Peinture',
         ],
         26 => [
@@ -238,7 +238,7 @@ class PaintFixtures extends Fixture
             'paint_image' => 'peinture4.jpg',
             'inspiration' => '',
             'image_inspiration' => '',
-            'taille' => '55 x 46',
+            'taille' => '55cm x 46cm',
             'category' => 'Peinture',
         ],
         27 => [
@@ -247,7 +247,7 @@ class PaintFixtures extends Fixture
             'paint_image' => 'peinture5.jpg',
             'inspiration' => 'Un voyage en Colombie Britannique m\'a fait découvrir la ville. de nombreuses photos m\'ont inspiré pour réaliser ce tableau ',
             'image_inspiration' => 'inspiVancouver.jpg',
-            'taille' => '100 x 34',
+            'taille' => '100cm x 34cm',
             'category' => 'Peinture',
         ],
         28 => [
@@ -256,7 +256,7 @@ class PaintFixtures extends Fixture
             'paint_image' => 'peinture6.jpg',
             'inspiration' => 'Ce village est le départ de nombreuses randonnées. ',
             'image_inspiration' => 'lescun.jpg',
-            'taille' => '100 x 70',
+            'taille' => '100cm x 70cm',
             'category' => 'Peinture',
         ],
         29 => [
@@ -265,7 +265,7 @@ class PaintFixtures extends Fixture
             'paint_image' => 'peinture7.jpg',
             'inspiration' => 'les rochers de Fort Coton ont inspiré de nombreux peintres. ',
             'image_inspiration' => '',
-            'taille' => '72 x 55',
+            'taille' => '72cm x 55cm',
             'category' => 'Peinture',
         ],
 30=> [
@@ -274,7 +274,7 @@ class PaintFixtures extends Fixture
             'paint_image' => 'peinture19.jpg',
             'inspiration' => 'les incendies de 2022 dans les Landes. L\'arbre de vie donne un espoir. ',
             'image_inspiration' => '',
-            'taille' => '70 x 50',
+            'taille' => '70cm x 50cm',
             'category' => 'Peinture',
         ],
 
@@ -284,7 +284,7 @@ class PaintFixtures extends Fixture
             'paint_image' => 'peinture8.jpg',
             'inspiration' => 'Cette table garnie se trouvait à la maison forte de Reignac en dordogne. ',
             'image_inspiration' => '',
-            'taille' => '72 x 55',
+            'taille' => '72cm x 55cm',
             'category' => 'Peinture',
         ],
         32 => [
@@ -293,7 +293,7 @@ class PaintFixtures extends Fixture
             'paint_image' => 'peinture9.jpg',
             'inspiration' => 'Representation des villes en expansion ',
             'image_inspiration' => '',
-            'taille' => '40 x 40',
+            'taille' => '40cm x 40cm',
             'category' => 'Peinture',
         ],
         33 => [
@@ -302,7 +302,7 @@ class PaintFixtures extends Fixture
             'paint_image' => 'peinture10.jpg',
             'inspiration' => 'paysage saisi en hiver aux portes de Laguiolle ',
             'image_inspiration' => '',
-            'taille' => '56 x 46',
+            'taille' => '56cm x 46cm',
             'category' => 'Peinture',
         ],
         34 => [
@@ -313,7 +313,7 @@ class PaintFixtures extends Fixture
 
 Le poste de secours de la plage était un lieu de rencontres, et de temps en temps une bouée de sauvetage lorsque l\'on s\'éloignait trop des kiosques des parents. ',
             'image_inspiration' => '',
-            'taille' => '30 x 20',
+            'taille' => '30cm x 20cm',
             'category' => 'Peinture',
         ],
         37 => [
@@ -322,7 +322,7 @@ Le poste de secours de la plage était un lieu de rencontres, et de temps en tem
             'paint_image' => 'peinture15.jpg',
             'inspiration' => 'à l\'origine un célèbre tableau de Botticelli, La naissance de Vénus. l\'objectif était de garder le principe de la mise en page du tabeau afin de le reconnaitre tout en modifiant le sujet. ',
             'image_inspiration' => '',
-            'taille' => '42 x 32',
+            'taille' => '42cm x 32cm',
             'category' => 'Peinture',
         ],
         38 => [
@@ -331,7 +331,7 @@ Le poste de secours de la plage était un lieu de rencontres, et de temps en tem
             'paint_image' => 'peinture16.jpg',
             'inspiration' => 'Les randonnées dans les pyrénées sont une grande source d\'inspiration. ',
             'image_inspiration' => '',
-            'taille' => '30 x 20',
+            'taille' => '30cm x 20cm',
             'category' => 'Peinture',
         ],
         39 => [
@@ -340,7 +340,7 @@ Le poste de secours de la plage était un lieu de rencontres, et de temps en tem
             'paint_image' => 'peinture17.jpg',
             'inspiration' => 'Les randonnées dans les pyrénées sont une grande source d\'inspiration. ',
             'image_inspiration' => '',
-            'taille' => '30 x 20',
+            'taille' => '30cm x 20cm',
             'category' => 'Peinture',
         ],
         40 => [
@@ -349,7 +349,7 @@ Le poste de secours de la plage était un lieu de rencontres, et de temps en tem
             'paint_image' => 'peinture18.jpg',
             'inspiration' => 'Les randonnées dans les pyrénées sont une grande source d\'inspiration. ',
             'image_inspiration' => '',
-            'taille' => '30 x 20',
+            'taille' => '30cm x 20cm',
             'category' => 'Peinture',
         ],
         41 => [
@@ -358,7 +358,7 @@ Le poste de secours de la plage était un lieu de rencontres, et de temps en tem
             'paint_image' => 'peinture20.jpg',
             'inspiration' => '',
             'image_inspiration' => '',
-            'taille' => '100 x 50',
+            'taille' => '100cm x 50cm',
             'category' => 'Peinture',
         ],
     ];
