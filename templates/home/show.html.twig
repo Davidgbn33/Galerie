@@ -3,7 +3,7 @@
 {% block title %}Toiles et Papiers{% endblock %}
 
 {% block body %}
-    <div class="te-grid">
+    <div class="te-grid te-vh">
         <aside class="d-flex justify-content-center align-items-center">
             <img class="te-show-img m-3" src="{{ asset('uploads/images/paint/') }}{{ paint.paintImage }}"
                  alt="{{ paint.paintImage }}" id="fullscreenButton">
@@ -25,12 +25,12 @@
 
                 {% if paint.inspiration != "" %}
                     <h3 class="te-font-section mt-5 mb-0">Inspiration :</h3>
-                    <hr class="w-md-75 mt-0">
+                    <hr class="w-md-75 mt-0 me-md-5">
                     <div class="d-md-flex te-grid-inspi">
                         <p class=" w-md-50 me-3 te-p te-grid-textInspi">{{ paint.inspiration }}</p>
                             {% if paint.ImageInspiration != "" %}
                         <div class="d-flex justify-content-center ">
-                                <img class="te-img-inspi me-1 te-grid-imageInspi"
+                                <img class="te-img-inspi te-grid-imageInspi"
                                      src="{{ asset('uploads/images/paint/') }}{{ paint.ImageInspiration }}"
                                      alt="">
                         </div>
