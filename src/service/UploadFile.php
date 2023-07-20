@@ -31,36 +31,4 @@ class UploadFile extends AbstractController{
         }
         return $file_url;
     }
-    public function saveFileInspi($file){
-        $extension = $file->guessExtension();
-        $filename = $this->generate_name(30).".".$extension;
-        $file->move($this->getParameter('image_dir_inspi'), $filename);
-
-        return $filename;
-    }
-    public function updateFileInspi($file, $old_file){
-        $file_url = $this->saveFile($file);
-        try {
-            unlink($this->getParameter('image_dir_inspi').$old_file);
-        } catch (\Throwable $th) {
-            //throw $th;
-        }
-        return $file_url;
-    }
-    public function saveFileCat($file){
-        $extension = $file->guessExtension();
-        $filename = $this->generate_name(30).".".$extension;
-        $file->move($this->getParameter('image_dir_cat'), $filename);
-
-        return $filename;
-    }
-    public function updateFileCat($file, $old_file){
-        $file_url = $this->saveFile($file);
-        try {
-            unlink($this->getParameter('image_dir_cat').$old_file);
-        } catch (\Throwable $th) {
-            //throw $th;
-        }
-        return $file_url;
-    }
 }

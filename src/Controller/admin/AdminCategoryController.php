@@ -45,7 +45,7 @@ class AdminCategoryController extends AbstractController
 
         if ($categoryForm->isSubmitted() && $categoryForm->isValid()) {
             $file = $categoryForm['categoryFile']->getData();
-            $filename = $this->uploadFile->saveFileCat($file);
+            $filename = $this->uploadFile->saveFile($file);
             $category->setCategoryImage($filename);
             $this->em->persist($category);
             $this->em->flush();
@@ -70,7 +70,7 @@ class AdminCategoryController extends AbstractController
         if ($categoryForm->isSubmitted() && $categoryForm->isValid()) {
             $file = $categoryForm['categoryFile']->getData();
             if($file){
-                $filename = $this->uploadFile->updateFileCat($file, $category->getCategoryImage());
+                $filename = $this->uploadFile->updateFile($file, $category->getCategoryImage());
                 $category->setCategoryImage($filename);
             }
             $categoryRepository->save($category, true);
