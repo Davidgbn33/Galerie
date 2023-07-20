@@ -10,7 +10,8 @@ import '../styles/app.scss';
 
 import './comment.js';
 import './fullscreen.js';
-import './noClick';
+import './noClick.js';
+import './toast.js';
 
 
 
