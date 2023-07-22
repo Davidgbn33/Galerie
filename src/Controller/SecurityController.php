@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-use App\service\CategoryService;
+use App\Services\CategoryService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;

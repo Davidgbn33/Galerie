@@ -5,7 +5,7 @@ namespace App\Controller\admin;
 use AllowDynamicProperties;
 use App\Entity\Comment;
 use App\Repository\CommentRepository;
-use App\service\CategoryService;
+use App\Services\CategoryService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;

@@ -3,19 +3,21 @@
 namespace App\Controller;
 
 
+use AllowDynamicProperties;
 use App\Entity\Comment;
 use App\Entity\Paint;
 use App\Form\CommentType;
-use App\Service\CategoryService;
-use App\service\PaintService;
+use App\Services\CategoryService;
+use App\Services\PaintService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
+#[AllowDynamicProperties]
 class PaintController extends AbstractController
 {
-    private $categoryService;
+
     public function __construct(CategoryService $categoryService)
     {
         $this->categoryService = $categoryService;

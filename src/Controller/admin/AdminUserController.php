@@ -3,12 +3,10 @@
 namespace App\Controller\admin;
 
 use AllowDynamicProperties;
-use App\Entity\Paint;
 use App\Entity\User;
 use App\Form\UserType;
 use App\Repository\UserRepository;
-use App\service\CategoryService;
-use Doctrine\ORM\EntityManagerInterface;
+use App\Services\CategoryService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;

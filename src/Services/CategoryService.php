@@ -1,12 +1,12 @@
 <?php
 
-namespace App\service;
+namespace App\Services;
 
 use App\Repository\CategoryRepository;
 
 class CategoryService
 {
-    private $categoryRepository;
+    private CategoryRepository $categoryRepository;
 
     public function __construct(CategoryRepository $categoryRepository)
     {

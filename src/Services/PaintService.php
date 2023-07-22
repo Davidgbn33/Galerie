@@ -1,6 +1,6 @@
 <?php
 
-namespace App\service;
+namespace App\Services;
 
 use App\Entity\Category;
 use App\Repository\PaintRepository;
