@@ -1,7 +1,7 @@
 # config/services.yaml
 
 services:
-  App\Service\CategoryService:
+  App\Services\CategoryService:
     arguments:
       $categoryRepository: '@App\Repository\CategoryRepository'
   App\Entity\Paint:
