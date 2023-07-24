@@ -4,3 +4,13 @@ footer{
   width: 100vw;
   position:relative;
 }
+
+@media screen and (max-width: 750px) {
+
+  .te-tel-ps{
+    padding-left: 0.5rem;
+  }
+  .te-tel-pe{
+    padding-right: 0.5rem;
+  }
+}

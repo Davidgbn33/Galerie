@@ -4,24 +4,33 @@ namespace App\Repository;
 
 use App\Entity\Category;
 use App\Entity\Paint;
-use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\Bundle\DoctrineBundle\Repository\LazyServiceEntityRepository;
+use Doctrine\ORM\Query;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @extends ServiceEntityRepository<Paint>
+ *
  *
  * @method Paint|null find($id, $lockMode = null, $lockVersion = null)
  * @method Paint|null findOneBy(array $criteria, array $orderBy = null)
  * @method Paint[]    findAll()
  * @method Paint[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class PaintRepository extends ServiceEntityRepository
+class PaintRepository extends LazyServiceEntityRepository
 {
+    /**
+     * @param ManagerRegistry $registry
+     */
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, Paint::class);
     }
 
+    /**
+     * @param Paint $entity
+     * @param bool $flush
+     * @return void
+     */
     public function save(Paint $entity, bool $flush = false): void
     {
         $this->getEntityManager()->persist($entity);
@@ -31,6 +40,11 @@ class PaintRepository extends ServiceEntityRepository
         }
     }
 
+    /**
+     * @param Paint $entity
+     * @param bool $flush
+     * @return void
+     */
     public function remove(Paint $entity, bool $flush = false): void
     {
         $this->getEntityManager()->remove($entity);
@@ -40,10 +54,14 @@ class PaintRepository extends ServiceEntityRepository
         }
     }
 
-    public function findForPagination(?Category $category = null)
+    /**
+     * @param Category|null $category
+     * @return Query
+     */
+    public function findForPagination(?Category $category = null): Query
     {
         $qb = $this->createQueryBuilder('a')
-            ->orderBy('a.createdAt', 'DESC');
+            ->orderBy('a.paintName', 'DESC');
 
         if ($category) {
             $qb->leftJoin('a.category', 'c')

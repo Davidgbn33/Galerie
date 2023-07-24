@@ -25,8 +25,8 @@ class AdminCommentController extends AbstractController
         $categories = $this->categoryService->getAllCategories();
         $comments = $commentRepository->findAll();
         return $this->render('admin/comment/liste.html.twig', [
-            'comments'=> $comments
-,            'categories' => $categories,
+             'comments'=> $comments,
+            'categories' => $categories,
         ]);
     }
     #[Route('/comment/{id}', name: 'delete', methods: ['GET','POST'])]

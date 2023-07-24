@@ -32,7 +32,6 @@ class PaintController extends AbstractController
         return $this->render('home/index.html.twig', [
             'pagination' => $pagination,
             'categories'=> $categories,
-
         ]);
     }
 #[Route('/show/{slug}', name: 'show',methods: ['GET', 'POST'])]

@@ -12,8 +12,8 @@ class PaintService
 
     public function __construct(
         private RequestStack $requestStack,
-        private PaintRepository $paintRepository,
-        private PaginatorInterface $paginator
+        private PaintRepository       $paintRepository,
+        private PaginatorInterface    $paginator
     )
     {
         
@@ -23,7 +23,7 @@ class PaintService
     {
         $request = $this->requestStack->getMainRequest();
         $page = $request->query->getint('page', 1);
-        $limit = 6;
+        $limit = 9;
 
        $paintsQuery = $this->paintRepository->findForPagination($category);
 
