@@ -12,6 +12,5 @@ import './comment.js';
 import './fullscreen.js';
 import './noClick.js';
 import './toast.js';
-
-
+import './ValidatorJs';
 

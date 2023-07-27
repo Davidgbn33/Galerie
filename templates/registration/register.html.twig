@@ -4,40 +4,57 @@
 
 {% block body %}
     <section class="te-vh">
-    <div class="container d-flex justify-content-center">
+        <div class="container d-flex justify-content-center">
 
-        <div class="d-flex flex-column justify-content-center align-items-center te-form te-shadow te-form-m w-75">
-            <h1 class="h3 mb-3 font-weight-normal text-center">INSCRIPTION</h1>
+            <div class="d-flex flex-column justify-content-center align-items-center te-form te-shadow te-form-m w-75">
+                <h1 class="h3 mb-3 font-weight-normal text-center">INSCRIPTION</h1>
 
-            <div class="w-75">
-                {{ form_start(registrationForm) }}
-                <label for="inputFullName">Nom Prénom</label>
-                <input
-                        name="{{ field_name(registrationForm.fullname) }}"
-                        id="inputFullName"
-                        type="text" class="form-control">
-                {{ form_errors(registrationForm.fullname) }}
-                <label for="inputEmail">Email</label>
-                <input
-                        name="{{ field_name(registrationForm.email) }}"
-                        id="inputEmail"
-                        type="text" class="form-control">
-                {{ form_errors(registrationForm.email) }}
-                <label for="password">Mot de Passe</label>
-                <input
-                        name="{{ field_name(registrationForm.plainPassword) }}"
-                        id="password"
-                        type="password" class="form-control" >
-                {{ form_errors(registrationForm.plainPassword) }}
-                {{ form_row(registrationForm.agreeTerms) }}
+                <div class="w-75">
+
+                        {{ form_start(registrationForm,{
+                            'attr': {
+                                'id': 'form'
+                            }
+                        }) }}
+                        <div class="form-control-register">
+                            <label for="inputFullName">Nom Prénom</label>
+                            <input
+                                    name="{{ field_name(registrationForm.fullname) }}"
+                                    id="Le_nom"
+                                    type="text" class="form-control"
+                                    data-rule="required|minlength-3">
+
+                            {{ form_errors(registrationForm.fullname) }}
+                        </div>
+                        <div class="form-control-register">
+                            <label for="inputEmail">Email</label>
+                            <input
+                                    name="{{ field_name(registrationForm.email) }}"
+                                    id="inputEmail"
+                                    type="text" class="form-control"
+                                    data-rule="required|email">
+
+                            {{ form_errors(registrationForm.email) }}
+                        </div>
+                        <div class="form-control-register">
+                            <label for="password">Mot de Passe</label>
+                            <input
+                                    name="{{ field_name(registrationForm.plainPassword) }}"
+                                    id="Le_mot_de_passe"
+                                    type="password" class="form-control"
+                                    data-rule="required|password">
+
+                        {{ form_errors(registrationForm.plainPassword) }}
+                        </div>
+                        {{ form_row(registrationForm.agreeTerms) }}
 
 
-                <div class="d-flex justify-content-center">
-                    <button type="submit" class="btn btn-lg te-btn w-50 mt-3">Enregistrer</button>
-                    {{ form_end(registrationForm) }}
+                        <div class="d-flex justify-content-center">
+                            <button type="submit" class="btn btn-lg te-btn w-50 mt-3">Enregistrer</button>
+                        </div>
+                            {{ form_end(registrationForm) }}
                 </div>
             </div>
         </div>
-    </div>
     </section>
 {% endblock %}
