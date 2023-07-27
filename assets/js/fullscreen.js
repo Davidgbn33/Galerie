@@ -1,5 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
-    let fullscreenButton = document.getElementById('fullscreenButton');
+
+    if(document.getElementById('fullscreenButton')){
+        let fullscreenButton = document.getElementById('fullscreenButton');
 
     function toggleFullScreen() {
         let image = this;
@@ -28,4 +30,5 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     fullscreenButton.addEventListener('click', toggleFullScreen);
+    }
 });
